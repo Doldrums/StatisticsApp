@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Final_Project</string>
+    <string name="title_activity_main22">Main22Activity</string>
+    <string name="title_solo">Solo</string>
+    <string name="title_duo">Duo</string>
+    <string name="title_squard">Squard</string>
 </resources>
