@@ -14,7 +14,7 @@
 
         <TextView android:layout_width="wrap_content"
                   android:text="PlayerName"
-                  android:layout_margin="10dp"
+                  android:layout_marginStart="10dp"
                   style="@style/Base.TextAppearance.AppCompat.Title"
                   android:textColor="@color/white"
                   android:layout_weight="1"
@@ -29,12 +29,55 @@
 
     </LinearLayout>
 
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+
+
+            <ImageView android:layout_width="match_parent"
+                       android:src="@drawable/wwwww"
+                       android:layout_height="366dp"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:text="Ranking"
+                  android:textSize="10pt"
+                  android:layout_marginStart="10dp"
+                  android:textColor="@color/white"
+                  android:layout_height="wrap_content"/>
+
+            <ImageView android:layout_width="match_parent"
+                       android:layout_marginEnd="10dp"
+                       android:layout_marginStart="10dp"
+                       android:src="@color/colorAccent"
+                       android:layout_height="5dp"/>
+            <ImageView android:layout_width="match_parent"
+                       android:src="@drawable/wwwww"
+                       android:layout_height="wrap_content"/>
+            <ImageView android:layout_width="match_parent"
+                       android:src="@drawable/wwwww"
+                       android:layout_height="wrap_content"/>
+            <ImageView android:layout_width="match_parent"
+                       android:src="@drawable/wwwww"
+                       android:layout_height="wrap_content"/>
+            <ImageView android:layout_width="match_parent"
+                       android:src="@drawable/wwwww"
+                       android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:itemIconTint="@color/white"
+            android:background="@color/color_background_main"
             app:itemTextColor="@color/white"
             app:menu="@menu/navigation"/>
 
