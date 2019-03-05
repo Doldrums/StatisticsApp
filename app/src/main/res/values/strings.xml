@@ -4,4 +4,12 @@
     <string name="title_solo">Solo</string>
     <string name="title_duo">Duo</string>
     <string name="title_squard">Squard</string>
+    <string name="begin_btn">find</string>
+    <string name="begin_txt_title">Welcome</string>
+    <string name="begin_txt_hint">player id</string>
+    <string name="begin_txt_description">To continue, enter the player ID to collect server statistics. Thank you in advance</string>
+    <string name="item_txt_id">id123456789</string>
+    <string name="list_txt_title">Choose a player Id</string>
+    <string name="stat_txt_title">PlayerName</string>
+    <string name="stat_txt_rank">Ranking</string>
 </resources>
