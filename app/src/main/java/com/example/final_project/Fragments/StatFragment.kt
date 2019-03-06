@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.final_project.MainActivity
 
 import com.example.final_project.R
+import kotlinx.android.synthetic.main.statfragment_layout.*
 
 
 class StatFragment : Fragment() {
@@ -22,6 +24,10 @@ class StatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        btn_exit_stat.setOnClickListener {
+            val ma = this@StatFragment.activity as MainActivity
+            ma.changeFragment(3)
+        }
 
     }
 
