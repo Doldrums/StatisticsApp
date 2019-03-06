@@ -2,7 +2,8 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:background="@color/color_background_main"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/color_background_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -11,22 +12,22 @@
                   android:orientation="horizontal"
                   android:layout_gravity="top"
                   android:layout_height="wrap_content" tools:ignore="UseCompoundDrawables">
-        <ImageView android:layout_width="wrap_content"
-                   android:src="@drawable/ic_arrow_back_black_24dp"
+        <ImageView android:layout_width="40dp"
                    android:layout_gravity="center_vertical"
-                   android:contentDescription="@string/stat_txt_rank"
-                   android:layout_marginStart="10dp"
-                   android:id="@+id/btn_exit_stat"
                    android:clickable="true"
+                   android:id="@+id/btn_exit_stat"
                    android:focusable="true"
-                   android:layout_height="wrap_content"/>
+                   android:contentDescription="@string/list_txt_title"
+                   android:src="@drawable/ic_arrow_back_black_24dp"
+                   android:layout_margin="10dp"
+                   android:layout_height="40dp"/>
 
-        <TextView android:layout_width="0dp"
+        <TextView android:layout_width="wrap_content"
                   android:text="@string/stat_txt_title"
+                  android:layout_marginStart="10dp"
                   android:layout_marginEnd="10dp"
                   style="@style/Base.TextAppearance.AppCompat.Title"
                   android:textColor="@color/white"
-                  android:layout_weight="1"
                   android:gravity="center_vertical"
                   android:layout_height="40dp"/>
 
@@ -44,7 +45,7 @@
             <ImageView android:layout_width="match_parent"
                        android:src="@drawable/wwwww"
                        android:contentDescription="@string/stat_txt_rank"
-                       android:layout_height="366dp"/>
+                       android:layout_height="wrap_content"/>
 
         <TextView android:layout_width="match_parent"
                   android:text="@string/stat_txt_rank"
