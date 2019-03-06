@@ -40,11 +40,11 @@ class ListPlayersFragment : Fragment() {
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     //Переходим во фрагмент с подробной статистикой об игроке
-                    Toast.makeText(
-                        this@ListPlayersFragment.activity,
-                        "Короткое нажатие",
-                        Toast.LENGTH_LONG
-                    ).show()
+//                    Toast.makeText(
+//                        this@ListPlayersFragment.activity,
+//                        "Короткое нажатие",
+//                        Toast.LENGTH_LONG
+//                    ).show()
                     val ma = this@ListPlayersFragment.activity as MainActivity
                     ma.changeFragment(2)
 
