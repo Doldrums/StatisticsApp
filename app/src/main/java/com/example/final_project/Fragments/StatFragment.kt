@@ -1,14 +1,12 @@
 package com.example.final_project.Fragments
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.final_project.MainActivity
-
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.statfragment_layout.*
 
@@ -24,7 +22,9 @@ class StatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //тут какой-то баг
         btn_exit_stat.setOnClickListener {
+            Log.e("bag_tag", "fghj")
             val ma = this@StatFragment.activity as MainActivity
             ma.changeFragment(3)
         }
