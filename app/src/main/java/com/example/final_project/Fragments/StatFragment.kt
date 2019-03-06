@@ -28,7 +28,7 @@ class StatFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            BeginFragment().apply {
+            StatFragment().apply {
             }
     }
 }
