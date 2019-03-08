@@ -22,6 +22,9 @@ class StatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Log.d("FRAG","Fragment StatFragment started")
+
         //тут какой-то баг
         btn_exit_stat.setOnClickListener {
             Log.e("bag_tag", "fghj")

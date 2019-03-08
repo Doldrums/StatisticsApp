@@ -7,16 +7,24 @@
     <string name="title_squard">Squard</string>
     <string name="begin_btn">find</string>
     <string name="begin_txt_title">Welcome</string>
-    <string name="begin_txt_hint">player id</string>
-    <string name="begin_txt_description">To continue, enter the player ID to collect server statistics. Thank you in
+    <string name="begin_txt_hint">player name</string>
+    <string name="begin_txt_description">To continue, enter the player name to collect server statistics. Thank you in
         advance
     </string>
-    <string name="item_txt_id">id123456789</string>
-    <string name="list_txt_title">Choose a player Id</string>
+    <string name="item_txt_name">PLAYER123</string>
+    <string name="list_txt_title">Choose a player name</string>
     <string name="stat_txt_title">PlayerName</string>
     <string name="stat_txt_rank">Ranking</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- constant strings to choose regime-->
+    <string name="duo">duo</string>
+    <string name="duo_fpp">duo-fpp</string>
+    <string name="solo">solo</string>
+    <string name="solo_fpp">solo-fpp</string>
+    <string name="squad">squad</string>
+    <string name="squad_fpp">squad-fpp</string>
 
 </resources>

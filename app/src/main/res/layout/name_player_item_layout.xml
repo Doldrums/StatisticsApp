@@ -17,7 +17,7 @@
                        android:src="@drawable/eeee"
                        android:layout_gravity="center_vertical"
                        android:layout_marginStart="20dp"
-                       android:contentDescription="@string/item_txt_id"
+                       android:contentDescription="@string/item_txt_name"
                        android:layout_height="50dp"/>
             <TextView android:layout_width="wrap_content"
                       android:layout_marginStart="30dp"
@@ -26,7 +26,7 @@
                       android:alpha="0.7"
                       android:id="@+id/name"
                       android:layout_gravity="center_vertical"
-                      android:text="@string/item_txt_id"
+                      android:text="@string/item_txt_name"
                       android:layout_height="wrap_content"/>
 
         </LinearLayout>
