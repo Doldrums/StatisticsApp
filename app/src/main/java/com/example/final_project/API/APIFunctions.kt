@@ -13,10 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class APIFunctions(context: Context) {
-
-
-}
+class APIFunctions(context: Context)
 
 fun listToString(arr: List<String>): String {
     var str = ""

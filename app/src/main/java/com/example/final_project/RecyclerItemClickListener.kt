@@ -13,7 +13,7 @@ class RecyclerItemClickListener(
     private val mListener: OnItemClickListener?
 ) : RecyclerView.OnItemTouchListener {
 
-    internal var mGestureDetector: GestureDetector
+    private var mGestureDetector: GestureDetector
 
     interface OnItemClickListener {
         fun onItemClick(view: View, position: Int)
