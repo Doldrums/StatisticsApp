@@ -78,10 +78,9 @@ class ListPlayersFragment : Fragment() {
     }
 
     class Adapter(private val player_id: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
-        lateinit var itemView: View
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            itemView = LayoutInflater.from(parent.context).inflate(R.layout.id_player_item_layout, parent, false)
-            return ViewHolder(itemView)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.id_player_item_layout, parent, false)
+            return ViewHolder(view)
 
         }
 
