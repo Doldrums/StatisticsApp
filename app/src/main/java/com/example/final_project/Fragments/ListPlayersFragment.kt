@@ -1,6 +1,7 @@
 package com.example.final_project.Fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,8 @@ class ListPlayersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Log.d("FRAG","Fragment ListFragment started")
 
         val player_id = mutableListOf<String>()
         player_id.add("Id1234567890")
@@ -80,7 +83,7 @@ class ListPlayersFragment : Fragment() {
     class Adapter(private val player_id: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
         lateinit var itemView: View
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            itemView = LayoutInflater.from(parent.context).inflate(R.layout.id_player_item_layout, parent, false)
+            itemView = LayoutInflater.from(parent.context).inflate(R.layout.name_player_item_layout, parent, false)
             return ViewHolder(itemView)
 
         }

@@ -2,15 +2,15 @@ package com.example.final_project.Fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.final_project.API.APIFunctions
 import com.example.final_project.MainActivity
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.beginfragment_layout.*
-
-
 
 
 class BeginFragment : Fragment() {
@@ -25,11 +25,17 @@ class BeginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("FRAG", "Fragment BeginFragment started")
         btn_find.setOnClickListener {
+
+            //получаем имя игрока и ищем через API
+            val name = input_login.getText().toString()
+            val names = listOf<String>(name)
+            val api = APIFunctions(names)
+
             //Закрываем фрагмент и переходим к ListPlayersFragment
             val ma = this@BeginFragment.activity as MainActivity
             ma.changeFragment(1)
-
         }
     }
 
