@@ -30,8 +30,7 @@ class BeginFragment : Fragment() {
 
             //получаем имя игрока и ищем через API
             val name = input_login.getText().toString()
-            val names = listOf<String>(name)
-            val api = APIFunctions(names)
+            val api = APIFunctions(name)
 
             //Закрываем фрагмент и переходим к ListPlayersFragment
             val ma = this@BeginFragment.activity as MainActivity
