@@ -3,7 +3,7 @@ package com.example.final_project.API
 import android.util.Log
 import com.example.final_project.BuildConfig
 import com.example.final_project.players.Player
-import com.example.final_project.players.PlayersData
+import com.example.final_project.players.PlayerData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -13,10 +13,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+class APIFunctions(name: String) {
 
-class APIFunctions(names: List<String>) {
-
-    val func = getPlayers(names)
+    val func = getPlayer(name)
 
 }
 
@@ -28,7 +27,7 @@ fun listToString(arr: List<String>): String {
     return str
 }
 
-fun getPlayers(names: List<String>){
+fun getPlayer(name: String) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -47,63 +46,22 @@ fun getPlayers(names: List<String>){
 
     val apIservice = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getPlayers(listToString(names))
+    val call = apIservice.getPlayer(name)
 
-    call.enqueue(object : Callback<PlayersData> {
-        override fun onFailure(call: Call<PlayersData>, t: Throwable) {
+    call.enqueue(object : Callback<PlayerData> {
+
+
+        override fun onFailure(call: Call<PlayerData>, t: Throwable) {
             Log.d("FAIL", "FAIL что-то не так!")
         }
 
-        override fun onResponse(call: Call<PlayersData>, response: Response<PlayersData>){
+
+        override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
             Log.d("OK", "Что-то заработало!")
-            val data = response.body()
-            for (item in data!!.players) {
-                Log.d("PLAYER_ID", item.id)
-                Log.d("PLAYER_NAME", item.attributes.name)
-            }
-            //здесь нужно запускать функцию добавления игрока во фрегменте со списком
+            Log.d("pl", response.body()!!.player.last().attributes.name)
+            Log.d("pl2", response.body()!!.player.last().id)
+
+            //здесь нужно запускать функцию добавления игрока во фрагменте со списком
         }
     })
-}
-
-private fun getStatistics(id: List<String>){
-    val interceptor = HttpLoggingInterceptor()
-    interceptor.level =
-        if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-
-    val client = OkHttpClient.Builder()
-        .addInterceptor(interceptor)
-        .build()
-
-
-    val retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(client)
-        .baseUrl("https://api.pubg.com/shards/steam/")
-        .build()
-
-
-    val apiService = retrofit.create(APIservice::class.java)
-
-    val call = apiService.getPlayers(listToString(id))
-
-    call.enqueue(object : Callback<PlayersData> {
-        override fun onFailure(call: Call<PlayersData>, t: Throwable) {
-            Log.d("FAIL", "FAIL что-то не так!")
-        }
-
-        override fun onResponse(call: Call<PlayersData>, response: Response<PlayersData>){
-            Log.d("OK", "Что-то заработало!")
-            val data = response.body()
-            for (item in data!!.players) {
-                Log.d("PLAYER_ID", item.id)
-                Log.d("PLAYER_NAME", item.attributes.name)
-            }
-            //здесь нужно запускать функцию добавления игрока во фрегменте со списком
-        }
-    })
-}
-
-fun createPlayersList(data:PlayersData):List<Player>{
-    return data.players
 }

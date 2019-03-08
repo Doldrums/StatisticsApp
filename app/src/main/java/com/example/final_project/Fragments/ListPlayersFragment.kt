@@ -10,10 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.final_project.Adapter
-import com.example.final_project.MainActivity
-import com.example.final_project.R
-import com.example.final_project.RecyclerItemClickListener
+import com.example.final_project.*
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 
 
@@ -30,16 +27,14 @@ class ListPlayersFragment : Fragment() {
 
         Log.d("FRAG","Fragment ListFragment started")
 
-        val playerId = mutableListOf<String>()
-        playerId.add("Id1234567890")
-        playerId.add("Id1234567890")
-        playerId.add("Id1234567890")
-        playerId.add("Id1234567890")
-        playerId.add("Id1234567890")
-
+        //тут вообще не должно быть списка игроков по идее
+        //мы получаем имя игрока в beginActivity и засовывваем его в класс, класс уже приходит сюда
+        //а приходить он должен через адаптер (который круто было бы сделать через adapter delegates)
+        val players = listOf("testData","testData","testData","testData","testData")
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(playerId)
+        //TODO("! Я сменил адаптер на кастом адаптер !")
+        my_recycler_view.adapter = CustomAdapter()
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
