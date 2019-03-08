@@ -26,15 +26,15 @@ class ListPlayersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val player_id = mutableListOf<String>()
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
+        val playerId = mutableListOf<String>()
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(player_id)
+        my_recycler_view.adapter = Adapter(playerId)
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
