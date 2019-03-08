@@ -19,4 +19,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- constant strings to choose regime-->
+    <string name="duo">duo</string>
+    <string name="duo_fpp">duo-fpp</string>
+    <string name="solo">solo</string>
+    <string name="solo_fpp">solo-fpp</string>
+    <string name="squad">squad</string>
+    <string name="squad_fpp">squad-fpp</string>
+
 </resources>

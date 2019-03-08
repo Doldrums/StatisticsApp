@@ -2,8 +2,8 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.Data
 import com.example.final_project.players.Player
+import com.example.final_project.players.PlayersData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class APIFunctions(names: List<String>) {
 
+    val func = getPlayers(names)
 
 }
 
@@ -25,7 +26,7 @@ fun listToString(arr: List<String>): String {
     return str
 }
 
-private fun getPlayers(names: List<String>){
+fun getPlayers(names: List<String>){
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -46,12 +47,12 @@ private fun getPlayers(names: List<String>){
 
     val call = apIservice.getPlayers(listToString(names))
 
-    call.enqueue(object : Callback<Data> {
-        override fun onFailure(call: Call<Data>, t: Throwable) {
+    call.enqueue(object : Callback<PlayersData> {
+        override fun onFailure(call: Call<PlayersData>, t: Throwable) {
             Log.d("FAIL", "FAIL что-то не так!")
         }
 
-        override fun onResponse(call: Call<Data>, response: Response<Data>){
+        override fun onResponse(call: Call<PlayersData>, response: Response<PlayersData>){
             Log.d("OK", "Что-то заработало!")
             val data = response.body()
             for (item in data!!.players) {
@@ -80,16 +81,16 @@ private fun getStatistics(id: List<String>){
         .build()
 
 
-    val apIservice = retrofit.create(APIservice::class.java)
+    val apiService = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getPlayers(listToString(names))
+    val call = apiService.getPlayers(listToString(id))
 
-    call.enqueue(object : Callback<Data> {
-        override fun onFailure(call: Call<Data>, t: Throwable) {
+    call.enqueue(object : Callback<PlayersData> {
+        override fun onFailure(call: Call<PlayersData>, t: Throwable) {
             Log.d("FAIL", "FAIL что-то не так!")
         }
 
-        override fun onResponse(call: Call<Data>, response: Response<Data>){
+        override fun onResponse(call: Call<PlayersData>, response: Response<PlayersData>){
             Log.d("OK", "Что-то заработало!")
             val data = response.body()
             for (item in data!!.players) {
@@ -101,6 +102,6 @@ private fun getStatistics(id: List<String>){
     })
 }
 
-fun createPlayersList(data:Data):List<Player>{
+fun createPlayersList(data:PlayersData):List<Player>{
     return data.players
 }

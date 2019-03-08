@@ -1,6 +1,6 @@
 package com.example.final_project.API
 
-import com.example.final_project.players.Data
+import com.example.final_project.players.PlayersData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -15,5 +15,5 @@ interface APIservice {
     )
 
     @GET("players/")
-    fun getPlayers(@Query("filter[playerNames]") namesOfPlayer: String): Call<Data>
+    fun getPlayers(@Query("filter[playerNames]") namesOfPlayer: String): Call<PlayersData>
 }
