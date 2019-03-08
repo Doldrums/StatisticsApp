@@ -26,7 +26,6 @@ fun listToString(arr: List<String>): String {
 }
 
 private fun getPlayers(names: List<String>){
-    var players:List<Player>
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -59,6 +58,45 @@ private fun getPlayers(names: List<String>){
                 Log.d("PLAYER_ID", item.id)
                 Log.d("PLAYER_NAME", item.attributes.name)
             }
+            //здесь нужно запускать функцию добавления игрока во фрегменте со списком
+        }
+    })
+}
+
+private fun getStatistics(id: List<String>){
+    val interceptor = HttpLoggingInterceptor()
+    interceptor.level =
+        if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+
+    val client = OkHttpClient.Builder()
+        .addInterceptor(interceptor)
+        .build()
+
+
+    val retrofit = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
+        .baseUrl("https://api.pubg.com/shards/steam/")
+        .build()
+
+
+    val apIservice = retrofit.create(APIservice::class.java)
+
+    val call = apIservice.getPlayers(listToString(names))
+
+    call.enqueue(object : Callback<Data> {
+        override fun onFailure(call: Call<Data>, t: Throwable) {
+            Log.d("FAIL", "FAIL что-то не так!")
+        }
+
+        override fun onResponse(call: Call<Data>, response: Response<Data>){
+            Log.d("OK", "Что-то заработало!")
+            val data = response.body()
+            for (item in data!!.players) {
+                Log.d("PLAYER_ID", item.id)
+                Log.d("PLAYER_NAME", item.attributes.name)
+            }
+            //здесь нужно запускать функцию добавления игрока во фрегменте со списком
         }
     })
 }
