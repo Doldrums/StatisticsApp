@@ -13,11 +13,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+
 class APIFunctions(names: List<String>) {
 
     val func = getPlayers(names)
 
 }
+
 
 fun listToString(arr: List<String>): String {
     var str = ""

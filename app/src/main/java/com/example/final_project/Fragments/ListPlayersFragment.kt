@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.final_project.Adapter
 import com.example.final_project.MainActivity
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
@@ -29,25 +30,20 @@ class ListPlayersFragment : Fragment() {
 
         Log.d("FRAG","Fragment ListFragment started")
 
-        val player_id = mutableListOf<String>()
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
+        val playerId = mutableListOf<String>()
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(player_id)
+        my_recycler_view.adapter = Adapter(playerId)
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
-                    //Переходим во фрагмент с подробной статистикой об игроке
-//                    Toast.makeText(
-//                        this@ListPlayersFragment.activity,
-//                        "Короткое нажатие",
-//                        Toast.LENGTH_LONG
-//                    ).show()
                     val ma = this@ListPlayersFragment.activity as MainActivity
                     ma.changeFragment(2)
 
@@ -80,27 +76,5 @@ class ListPlayersFragment : Fragment() {
             }
     }
 
-    class Adapter(private val player_id: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
-        lateinit var itemView: View
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            itemView = LayoutInflater.from(parent.context).inflate(R.layout.name_player_item_layout, parent, false)
-            return ViewHolder(itemView)
 
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.player_id?.text = player_id[position]
-        }
-
-        override fun getItemCount() = player_id.size
-        class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-            var player_id: TextView? = null
-
-            init {
-                player_id = itemView?.findViewById(R.id.name)
-            }
-        }
-
-
-    }
 }
