@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.final_project.Adapter
 import com.example.final_project.MainActivity
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
@@ -81,28 +82,5 @@ class ListPlayersFragment : Fragment() {
             }
     }
 
-    class Adapter(private val player_id: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.name_player_item_layout, parent, false)
-            return ViewHolder(view)
-
-
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.player_id?.text = player_id[position]
-        }
-
-        override fun getItemCount() = player_id.size
-        class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-            var player_id: TextView? = null
-
-            init {
-                player_id = itemView?.findViewById(R.id.name)
-            }
-        }
-
-
-    }
 }
