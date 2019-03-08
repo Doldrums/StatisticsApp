@@ -29,12 +29,12 @@ class ListPlayersFragment : Fragment() {
 
         Log.d("FRAG","Fragment ListFragment started")
 
-        val player_id = mutableListOf<String>()
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
-        player_id.add("Id1234567890")
+        val playerId = mutableListOf<String>()
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
+        playerId.add("Id1234567890")
 
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
@@ -84,7 +84,7 @@ class ListPlayersFragment : Fragment() {
     class Adapter(private val player_id: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.id_player_item_layout, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.name_player_item_layout, parent, false)
             return ViewHolder(view)
 
 
