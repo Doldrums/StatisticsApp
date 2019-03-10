@@ -1,7 +1,7 @@
 package com.example.final_project.Fragments
 
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +13,7 @@ import com.example.final_project.MainActivity
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
+import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
 private const val ARG_PARAM1 = "param1"
@@ -21,17 +22,21 @@ private const val ARG_PARAM1 = "param1"
 
 
 class ListPlayersFragment : Fragment() {
-    private var param1: String? = null
+    private var playerName: String? = null
 
-    val players = mutableListOf<String>()
+    var players = mutableListOf<String>()
+    var state = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            playerName = it.getString(ARG_PARAM1)
         }
-        if (param1!=null) players.add(param1!!)
-        players.add("null")
+        if (playerName!=null) players.add(playerName!!)
+        players.add("sdfghjk")
+        players.add("sdfghjk")
+        players.add("sdfghjk")
+
     }
 
 
@@ -44,11 +49,8 @@ class ListPlayersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Log.d("FRAG","Fragment ListFragment started")
-
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(listOf("PLAYER123"))
+        my_recycler_view.adapter = Adapter(players)
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
@@ -59,12 +61,12 @@ class ListPlayersFragment : Fragment() {
                 }
 
                 override fun onLongItemClick(view: View?, position: Int) {
+                    item_background.setCardBackgroundColor(Color.BLUE)
                     Toast.makeText(
                         this@ListPlayersFragment.activity,
                         "Длинное нажатие",
                         Toast.LENGTH_LONG
                     ).show()
-                    // do whatever
                 }
             })
         )

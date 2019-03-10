@@ -2,7 +2,6 @@ package com.example.final_project.Fragments
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +24,6 @@ class AddPlayerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("FRAG", "Fragment AddPlayerFragment started")
         val playerName = input_login.text.toString()
         btn_find.setOnClickListener {
             if (playerName==""){
