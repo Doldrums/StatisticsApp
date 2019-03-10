@@ -48,7 +48,7 @@ class ListPlayersFragment : Fragment() {
         Log.d("FRAG","Fragment ListFragment started")
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(players)
+        my_recycler_view.adapter = Adapter(listOf("PLAYER123"))
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {

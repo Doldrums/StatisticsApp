@@ -29,8 +29,6 @@ class AddPlayerFragment : Fragment() {
         btn_find.setOnClickListener {
 
             //получаем имя игрока и ищем через API
-            val name = input_login.getText().toString()
-            val api = APIFunctions(name)
 
             //Закрываем фрагмент и переходим к ListPlayersFragment
             val ma = this@AddPlayerFragment.activity as MainActivity

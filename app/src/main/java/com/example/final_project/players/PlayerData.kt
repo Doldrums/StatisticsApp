@@ -9,7 +9,7 @@ data class PlayerData(
     //списка имен, иначе получить id игрока нельзя :(
     //id нужен уже для всех остальных запросов
     val player: List<Player>
-):JustInterfaceToAdapter
+)
 
 data class Player(
     val id: String,
@@ -20,6 +20,3 @@ data class Player(
 data class PlayerAttributes(
     val name: String
 )
-
-interface JustInterfaceToAdapter{
-}
