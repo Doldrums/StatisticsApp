@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.final_project.API.getPlayer
 import com.example.final_project.Adapter
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
@@ -26,14 +27,16 @@ class ListPlayersFragment : Fragment() {
     private var playerName: String? = null
 
     var players = mutableListOf<String>()
-    var state = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             playerName = it.getString(ARG_PARAM1)
         }
-        if (playerName!=null) players.add(playerName!!)
+        if (playerName!=null){
+            getPlayer("CHEEL40000")
+            players.add(MainActivity.playerName)
+        }
         players.add("sdfghjk")
         players.add("sdfghjk")
         players.add("sdfghjk")

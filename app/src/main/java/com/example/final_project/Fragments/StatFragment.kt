@@ -39,8 +39,6 @@ class StatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("FRAG","Fragment StatFragment started")
-//вот тут не видит нажатие хз почему
-// тут какой-то баг
         btn_exitStat.setOnClickListener {
             Log.e("bag_tag", "fghj")
             val mainActivity = this@StatFragment.activity as MainActivity

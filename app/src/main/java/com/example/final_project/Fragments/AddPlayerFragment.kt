@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.final_project.MainActivity
-import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.beginfragment_layout.*
 
@@ -27,9 +26,13 @@ class AddPlayerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d("FRAG", "Fragment BeginFragment started")
         val playerName = input_login.text.toString()
+
+
+
         btn_find.setOnClickListener {
+            Log.i("kek_tag","ghj")
             val mainActivity = this@AddPlayerFragment.activity as MainActivity
-            mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT, playerName, "null")
+            mainActivity.changeFragment(3, "null", "null")
         }
     }
 
