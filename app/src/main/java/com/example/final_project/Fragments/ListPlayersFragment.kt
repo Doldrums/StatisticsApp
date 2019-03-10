@@ -17,7 +17,7 @@ import com.example.final_project.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
-
+import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
 private const val ARG_PARAM1 = "param1"
@@ -55,11 +55,6 @@ class ListPlayersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         my_recycler_view.adapter = Adapter(players)
-
-//        addPlayer.setOnClickListener {
-//            val mainActivity = this@ListPlayersFragment.activity as MainActivity
-//            mainActivity.changeFragment(BEGIN_FRAGMENT)
-//        }
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {

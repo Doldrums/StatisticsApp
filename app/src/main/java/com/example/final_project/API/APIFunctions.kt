@@ -2,7 +2,9 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
+import com.example.final_project.MainActivity
 import com.example.final_project.players.*
+import kotlinx.android.synthetic.main.beginfragment_layout.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -18,7 +20,7 @@ fun listToString(arr: List<String>): String {
     return str
 }
 
-fun getPlayer(name: String){
+fun getPlayer(name: String) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -51,6 +53,7 @@ fun getPlayer(name: String){
             Log.d("OK", "Что-то заработало!")
             //здесь нужно сохранить имя игрока и его id, чтобы потом передать в ListPlayersFragment
             //и добавить в список
+
         }
     })
 }

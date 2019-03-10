@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         val LIST_PLAYERS_FRAGMENT = 1
         val STAT_FRAGMENT = 2
         val BEGIN_FRAGMENT = 3
+        val COMPARSION_FRAGMENT = 4
     }
 
 }
