@@ -16,14 +16,14 @@ private const val ARG_PARAM2 = "param2"
 
 class StatFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    private var name: String? = null
+    private var id: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            name = it.getString(ARG_PARAM1)
+            id = it.getString(ARG_PARAM2)
         }
     }
 
@@ -43,6 +43,7 @@ class StatFragment : Fragment() {
             val ma = this@StatFragment.activity as MainActivity
             ma.changeFragment(3, "null", "null")
         }
+        txt_playerName.text = name
 
     }
 
