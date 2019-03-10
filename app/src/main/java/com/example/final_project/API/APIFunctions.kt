@@ -2,7 +2,6 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.Player
 import com.example.final_project.players.PlayerData
 import com.example.final_project.players.SeasonStatistic
 import com.example.final_project.players.SeasonsData
@@ -13,15 +12,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-
-class APIFunctions() {
-    //Я не знаю, что тут писать
-    //Если этот класс убрать, то куда писать все функции для работы с апи?
-    //Прямо во офрагмент?
-
-}
-
 
 fun listToString(arr: List<String>): String {
     var str = ""
@@ -61,10 +51,8 @@ fun getPlayer(name: String) {
 
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
             Log.d("OK", "Что-то заработало!")
-            Log.d("pl", response.body()!!.player.last().attributes.name)
-            Log.d("pl2", response.body()!!.player.last().id)
-
-            //здесь нужно запускать функцию добавления игрока во фрагменте со списком
+            //здесь нужно сохранить имя игрока и его id, чтобы потом передать в ListPlayersFragment
+            //и добавить в список
         }
     })
 }
@@ -137,7 +125,6 @@ fun getSeasonStats(name: String,id:String) {
 
         override fun onResponse(call: Call<SeasonStatistic>, response: Response<SeasonStatistic>) {
             Log.d("OK", "Что-то заработало!")
-
             //здесь нужно запускать функцию, которая отобразит статистику в StatFragment
         }
     })
