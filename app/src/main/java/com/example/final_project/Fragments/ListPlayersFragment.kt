@@ -1,5 +1,6 @@
 package com.example.final_project.Fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,14 +10,40 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.final_project.*
+import com.example.final_project.Adapter
+import com.example.final_project.MainActivity
+import com.example.final_project.R
+import com.example.final_project.RecyclerItemClickListener
+import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
-import kotlinx.android.synthetic.main.listplayerfragment_layout.*
+
+
+
+private const val ARG_PARAM1 = "param1"
+
+
 
 
 class ListPlayersFragment : Fragment() {
+    private var playerName: String? = null
+
+    var players = mutableListOf<String>()
+    var state = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            playerName = it.getString(ARG_PARAM1)
+        }
+        if (playerName!=null) players.add(playerName!!)
+        players.add("sdfghjk")
+        players.add("sdfghjk")
+        players.add("sdfghjk")
+
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,39 +53,37 @@ class ListPlayersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Log.d("FRAG","Fragment ListFragment started")
-
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(listOf("PLAYER123"))
+        my_recycler_view.adapter = Adapter(players)
 
-        addPlayer.setOnClickListener {
-            val mainActivity = this@ListPlayersFragment.activity as MainActivity
-            mainActivity.changeFragment(BEGIN_FRAGMENT)
-        }
+//        addPlayer.setOnClickListener {
+//            val mainActivity = this@ListPlayersFragment.activity as MainActivity
+//            mainActivity.changeFragment(BEGIN_FRAGMENT)
+//        }
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                    mainActivity.changeFragment(STAT_FRAGMENT)
+                    // в playerName передаем имя  через позицию в RV
+                    mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
 
                 }
 
                 override fun onLongItemClick(view: View?, position: Int) {
+                    item_background.setCardBackgroundColor(Color.BLUE)
                     Toast.makeText(
                         this@ListPlayersFragment.activity,
                         "Длинное нажатие",
                         Toast.LENGTH_LONG
                     ).show()
-                    // do whatever
                 }
             })
         )
 
-        btn_exit.setOnClickListener {
-            val ma = this@ListPlayersFragment.activity as MainActivity
-            ma.changeFragment(3)
+        fab_addPlayer.setOnClickListener {
+            val mainActivity = this@ListPlayersFragment.activity as MainActivity
+            mainActivity.changeFragment(1, "null", "null")
         }
 
 
@@ -67,8 +92,11 @@ class ListPlayersFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(param1: String) =
             ListPlayersFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                }
             }
     }
 

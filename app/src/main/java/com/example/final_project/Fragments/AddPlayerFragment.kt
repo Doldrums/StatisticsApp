@@ -3,17 +3,19 @@ package com.example.final_project.Fragments
 
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.example.final_project.API.APIFunctions
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
 import com.example.final_project.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.beginfragment_layout.*
 
 
-class BeginFragment : Fragment() {
+class AddPlayerFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -26,21 +28,22 @@ class BeginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("FRAG", "Fragment BeginFragment started")
+        val playerName = input_login.text.toString()
         btn_find.setOnClickListener {
-
-            //получаем имя игрока и ищем через API
-
-            //Закрываем фрагмент и переходим к ListPlayersFragment
-            val ma = this@BeginFragment.activity as MainActivity
-            ma.changeFragment(LIST_PLAYERS_FRAGMENT)
+            if (playerName==""){
+                Snackbar.make(it,"Введите что-нибудь",Snackbar.LENGTH_LONG).show()
+            }else{
+                //тут надо наверное провернуть какие-то действия с апихой дабы проверить адекватно ли имя игрока
+                val mainActivity = this@AddPlayerFragment.activity as MainActivity
+                mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT, playerName, "null")
+            }
         }
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            BeginFragment().apply {
+            AddPlayerFragment().apply {
             }
     }
 }
-

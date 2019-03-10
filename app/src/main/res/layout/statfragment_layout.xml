@@ -12,18 +12,19 @@
                   android:orientation="horizontal"
                   android:layout_gravity="top"
                   android:layout_height="wrap_content" tools:ignore="UseCompoundDrawables">
-        <ImageView android:layout_width="40dp"
+        <ImageView android:layout_width="25dp"
                    android:layout_gravity="center_vertical"
                    android:clickable="true"
-                   android:id="@+id/btn_exit_stat"
+                   android:id="@+id/btn_exitStat"
                    android:focusable="true"
                    android:contentDescription="@string/list_txt_title"
                    android:src="@drawable/ic_arrow_back_black_24dp"
                    android:layout_margin="10dp"
-                   android:layout_height="40dp"/>
+                   android:layout_height="25dp"/>
 
         <TextView android:layout_width="wrap_content"
                   android:text="@string/stat_txt_title"
+                  android:id="@+id/txt_playerName"
                   android:layout_marginStart="10dp"
                   android:layout_marginEnd="10dp"
                   style="@style/Base.TextAppearance.AppCompat.Title"

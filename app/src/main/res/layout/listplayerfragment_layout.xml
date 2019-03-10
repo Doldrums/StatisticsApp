@@ -23,15 +23,17 @@
               android:textColor="@color/white"
               android:layout_gravity="center_horizontal"
               android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView android:layout_width="300dp"
                                                android:id="@+id/my_recycler_view"
                                                android:layout_gravity="center_horizontal"
                                                android:layout_marginTop="20dp"
-                                               android:layout_height="440dp"/>
+                                               android:layout_height="400dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_gravity="end|bottom"
+            android:id="@+id/fab_addPlayer"
             android:layout_margin="10dp"
             android:src="@drawable/ic_add_black_24dp"
             android:layout_height="wrap_content" android:id="@+id/addPlayer"/>
