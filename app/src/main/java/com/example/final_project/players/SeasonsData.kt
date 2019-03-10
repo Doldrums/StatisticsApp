@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class SeasonsData(
     @SerializedName("data")
     val season: List<Season>
-):JustInterfaceToAdapter
+)
 
 data class Season(
     @SerializedName("attributes")

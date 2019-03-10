@@ -27,14 +27,8 @@ class ListPlayersFragment : Fragment() {
 
         Log.d("FRAG","Fragment ListFragment started")
 
-        //тут вообще не должно быть списка игроков по идее
-        //мы получаем имя игрока в beginActivity и засовывваем его в класс, класс уже приходит сюда
-        //а приходить он должен через адаптер (который круто было бы сделать через adapter delegates)
-        val players = listOf("testData","testData","testData","testData","testData")
-
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        //TODO("! Я сменил адаптер на кастом адаптер !")
-        my_recycler_view.adapter = CustomAdapter()
+        my_recycler_view.adapter = Adapter(listOf("PLAYER123"))
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
