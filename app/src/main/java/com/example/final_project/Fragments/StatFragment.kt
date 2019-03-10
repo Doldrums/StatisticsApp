@@ -11,7 +11,21 @@ import com.example.final_project.R
 import kotlinx.android.synthetic.main.statfragment_layout.*
 
 
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
 class StatFragment : Fragment() {
+
+    private var param1: String? = null
+    private var param2: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,20 +38,22 @@ class StatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("FRAG","Fragment StatFragment started")
-
-        //тут какой-то баг
-        btn_exit_stat.setOnClickListener {
-            Log.e("bag_tag", "fghj")
+        //вот тут не видит нажатие хз почему
+        btn_exitStat.setOnClickListener {
             val ma = this@StatFragment.activity as MainActivity
-            ma.changeFragment(3)
+            ma.changeFragment(3, "null", "null")
         }
 
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(param1: String, param2: String) =
             StatFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
             }
     }
 }

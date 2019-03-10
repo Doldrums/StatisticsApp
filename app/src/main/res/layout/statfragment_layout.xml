@@ -15,7 +15,7 @@
         <ImageView android:layout_width="40dp"
                    android:layout_gravity="center_vertical"
                    android:clickable="true"
-                   android:id="@+id/btn_exit_stat"
+                   android:id="@+id/btn_exitStat"
                    android:focusable="true"
                    android:contentDescription="@string/list_txt_title"
                    android:src="@drawable/ic_arrow_back_black_24dp"

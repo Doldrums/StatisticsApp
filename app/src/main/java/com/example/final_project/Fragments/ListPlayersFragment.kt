@@ -2,19 +2,39 @@ package com.example.final_project.Fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.final_project.*
+import com.example.final_project.Adapter
+import com.example.final_project.MainActivity
+import com.example.final_project.R
+import com.example.final_project.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 
 
+private const val ARG_PARAM1 = "param1"
+
+
+
+
 class ListPlayersFragment : Fragment() {
+    private var param1: String? = null
+
+    val players = mutableListOf<String>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+        }
+        if (param1!=null) players.add(param1!!)
+        players.add("null")
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,21 +47,15 @@ class ListPlayersFragment : Fragment() {
 
         Log.d("FRAG","Fragment ListFragment started")
 
-        //тут вообще не должно быть списка игроков по идее
-        //мы получаем имя игрока в beginActivity и засовывваем его в класс, класс уже приходит сюда
-        //а приходить он должен через адаптер (который круто было бы сделать через adapter delegates)
-        val players = listOf("testData","testData","testData","testData","testData")
-
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        //TODO("! Я сменил адаптер на кастом адаптер !")
-        my_recycler_view.adapter = CustomAdapter()
+        my_recycler_view.adapter = Adapter(players)
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     val ma = this@ListPlayersFragment.activity as MainActivity
-                    ma.changeFragment(2)
-
+                    // в playerName передаем имя  через позицию в RV
+                    ma.changeFragment(2,players[position], "null")
                 }
 
                 override fun onLongItemClick(view: View?, position: Int) {
@@ -55,9 +69,9 @@ class ListPlayersFragment : Fragment() {
             })
         )
 
-        btn_exit.setOnClickListener {
+        fab_addPlayer.setOnClickListener {
             val ma = this@ListPlayersFragment.activity as MainActivity
-            ma.changeFragment(3)
+            ma.changeFragment(1, "null", "null")
         }
 
 
@@ -66,8 +80,11 @@ class ListPlayersFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(param1: String) =
             ListPlayersFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                }
             }
     }
 

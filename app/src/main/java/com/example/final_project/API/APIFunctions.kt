@@ -2,7 +2,6 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.Player
 import com.example.final_project.players.PlayerData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -57,9 +56,9 @@ fun getPlayer(name: String) {
 
 
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
-            Log.d("OK", "Что-то заработало!")
-            Log.d("pl", response.body()!!.player.last().attributes.name)
-            Log.d("pl2", response.body()!!.player.last().id)
+           // Log.d("OK", "Что-то заработало!")
+            //Log.d("pl", response.body()!!.player.last().attributes.name)
+            //Log.d("pl2", response.body()!!.player.last().id)
 
             //здесь нужно запускать функцию добавления игрока во фрагменте со списком
         }
