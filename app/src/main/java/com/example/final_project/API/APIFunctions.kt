@@ -2,9 +2,7 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.PlayerData
-import com.example.final_project.players.SeasonStatistic
-import com.example.final_project.players.SeasonsData
+import com.example.final_project.players.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -13,15 +11,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
-class APIFunctions() {
-    //Я не знаю, что тут писать
-    //Если этот класс убрать, то куда писать все функции для работы с апи?
-    //Прямо во офрагмент?
-
-}
-
-
 fun listToString(arr: List<String>): String {
     var str = ""
     for (item in arr) str += "$item,"
@@ -29,7 +18,7 @@ fun listToString(arr: List<String>): String {
     return str
 }
 
-fun getPlayer(name: String) {
+fun getPlayer(name: String){
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -59,11 +48,9 @@ fun getPlayer(name: String) {
 
 
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
-           // Log.d("OK", "Что-то заработало!")
-            //Log.d("pl", response.body()!!.player.last().attributes.name)
-            //Log.d("pl2", response.body()!!.player.last().id)
-
-            //здесь нужно запускать функцию добавления игрока во фрагменте со списком
+            Log.d("OK", "Что-то заработало!")
+            //здесь нужно сохранить имя игрока и его id, чтобы потом передать в ListPlayersFragment
+            //и добавить в список
         }
     })
 }
@@ -105,7 +92,7 @@ fun getSeasons() {
     })
 }
 
-fun getSeasonStats(name: String,id:String) {
+fun getSeasonStats(name: String, id: String) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -124,7 +111,7 @@ fun getSeasonStats(name: String,id:String) {
 
     val apIservice = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getSeasonStats(name,id)
+    val call = apIservice.getSeasonStats(name, id)
 
     call.enqueue(object : Callback<SeasonStatistic> {
 
@@ -136,7 +123,6 @@ fun getSeasonStats(name: String,id:String) {
 
         override fun onResponse(call: Call<SeasonStatistic>, response: Response<SeasonStatistic>) {
             Log.d("OK", "Что-то заработало!")
-
             //здесь нужно запускать функцию, которая отобразит статистику в StatFragment
         }
     })

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.final_project.MainActivity
+import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.statfragment_layout.*
 
@@ -38,10 +39,12 @@ class StatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("FRAG","Fragment StatFragment started")
-        //вот тут не видит нажатие хз почему
+//вот тут не видит нажатие хз почему
+// тут какой-то баг
         btn_exitStat.setOnClickListener {
-            val ma = this@StatFragment.activity as MainActivity
-            ma.changeFragment(3, "null", "null")
+            Log.e("bag_tag", "fghj")
+            val mainActivity = this@StatFragment.activity as MainActivity
+            mainActivity.changeFragment(BEGIN_FRAGMENT, "null", "null")
         }
         txt_playerName.text = name
 

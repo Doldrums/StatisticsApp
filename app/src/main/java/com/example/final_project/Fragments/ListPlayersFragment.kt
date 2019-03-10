@@ -2,18 +2,22 @@ package com.example.final_project.Fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.Adapter
 import com.example.final_project.MainActivity
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
-import kotlinx.android.synthetic.main.name_player_item_layout.*
+import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
+import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
+
 
 
 private const val ARG_PARAM1 = "param1"
@@ -52,12 +56,18 @@ class ListPlayersFragment : Fragment() {
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         my_recycler_view.adapter = Adapter(players)
 
+//        addPlayer.setOnClickListener {
+//            val mainActivity = this@ListPlayersFragment.activity as MainActivity
+//            mainActivity.changeFragment(BEGIN_FRAGMENT)
+//        }
+
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
-                    val ma = this@ListPlayersFragment.activity as MainActivity
+                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
                     // в playerName передаем имя  через позицию в RV
-                    ma.changeFragment(2,players[position], "null")
+                    mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
+
                 }
 
                 override fun onLongItemClick(view: View?, position: Int) {
@@ -72,8 +82,8 @@ class ListPlayersFragment : Fragment() {
         )
 
         fab_addPlayer.setOnClickListener {
-            val ma = this@ListPlayersFragment.activity as MainActivity
-            ma.changeFragment(1, "null", "null")
+            val mainActivity = this@ListPlayersFragment.activity as MainActivity
+            mainActivity.changeFragment(1, "null", "null")
         }
 
 
