@@ -34,7 +34,7 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="10dp"
             android:src="@drawable/ic_add_black_24dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" android:id="@+id/addPlayer"/>
 
 
 

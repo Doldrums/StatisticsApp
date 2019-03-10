@@ -2,9 +2,7 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.PlayerData
-import com.example.final_project.players.SeasonStatistic
-import com.example.final_project.players.SeasonsData
+import com.example.final_project.players.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -20,7 +18,7 @@ fun listToString(arr: List<String>): String {
     return str
 }
 
-fun getPlayer(name: String) {
+fun getPlayer(name: String){
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -94,7 +92,7 @@ fun getSeasons() {
     })
 }
 
-fun getSeasonStats(name: String,id:String) {
+fun getSeasonStats(name: String, id: String) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -113,7 +111,7 @@ fun getSeasonStats(name: String,id:String) {
 
     val apIservice = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getSeasonStats(name,id)
+    val call = apIservice.getSeasonStats(name, id)
 
     call.enqueue(object : Callback<SeasonStatistic> {
 

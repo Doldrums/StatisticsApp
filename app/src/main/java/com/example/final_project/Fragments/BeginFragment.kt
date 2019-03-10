@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.final_project.MainActivity
+import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.beginfragment_layout.*
 
@@ -31,7 +32,7 @@ class BeginFragment : Fragment() {
 
             //Закрываем фрагмент и переходим к ListPlayersFragment
             val ma = this@BeginFragment.activity as MainActivity
-            ma.changeFragment(1)
+            ma.changeFragment(LIST_PLAYERS_FRAGMENT)
         }
     }
 
@@ -42,3 +43,4 @@ class BeginFragment : Fragment() {
             }
     }
 }
+

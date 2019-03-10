@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.*
+import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
+import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 
 
@@ -30,11 +32,16 @@ class ListPlayersFragment : Fragment() {
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         my_recycler_view.adapter = Adapter(listOf("PLAYER123"))
 
+        addPlayer.setOnClickListener {
+            val mainActivity = this@ListPlayersFragment.activity as MainActivity
+            mainActivity.changeFragment(BEGIN_FRAGMENT)
+        }
+
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
-                    val ma = this@ListPlayersFragment.activity as MainActivity
-                    ma.changeFragment(2)
+                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
+                    mainActivity.changeFragment(STAT_FRAGMENT)
 
                 }
 
