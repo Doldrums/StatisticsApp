@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.final_project.API.getPlayer
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import com.example.final_project.PlayersAdapter
@@ -34,12 +33,8 @@ class ListPlayersFragment : Fragment() {
             sPlayerName = it.getString(ARG_PLAYER_NAME)
         }
         if (sPlayerName!=""){
-            getPlayer(sPlayerName!!)
-            players.add(MainActivity.sPlayerName)
+            players.add(sPlayerName!!)
         }
-        players.add("sdfghjk")
-        players.add("sdfghjk")
-        players.add("sdfghjk")
 
     }
 
