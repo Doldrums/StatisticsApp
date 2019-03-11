@@ -18,22 +18,28 @@ import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
 private const val ARG_PLAYER_NAME = "paramPlayerName"
+private const val ARG_PLAYER_ID = "paramPlayerID"
 
 
 
 
 class ListPlayersFragment : Fragment() {
     private var sPlayerName: String? = null
+    private var sPlayerID: String? = null
 
-    private val players = mutableListOf<String>()
+    private val playersName = mutableListOf<String>()
+    private val playersID = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             sPlayerName = it.getString(ARG_PLAYER_NAME)
+            sPlayerID = it.getString(ARG_PLAYER_ID)
+
         }
-        if (sPlayerName!=""){
-            players.add(sPlayerName!!)
+        if (sPlayerName!="" && sPlayerID!=""){
+            playersName.add(sPlayerName!!)
+            playersID.add(sPlayerID!!)
         }
 
     }
@@ -49,15 +55,14 @@ class ListPlayersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = PlayersAdapter(players)
+        my_recycler_view.adapter = PlayersAdapter(playersName)
 
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                    // в sPlayerName передаем имя  через позицию в RV
-                    mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
+                    mainActivity.changeFragment(STAT_FRAGMENT,playersName[position], playersID[position])
 
                 }
 
@@ -83,10 +88,11 @@ class ListPlayersFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String) =
+        fun newInstance(param1: String, param2: String) =
             ListPlayersFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PLAYER_NAME, param1)
+                    putString(ARG_PLAYER_ID,param2)
                 }
             }
     }

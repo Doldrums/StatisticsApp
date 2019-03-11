@@ -19,7 +19,7 @@ public class MainActivity : AppCompatActivity() {
 
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance(""), "kek_tag")
+                .add(R.id.fragment, ListPlayersFragment.newInstance("", ""), "kek_tag")
                 .commit()
 
 
@@ -36,7 +36,7 @@ public class MainActivity : AppCompatActivity() {
                 .commit()
             LIST_PLAYERS_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance(name), "frag3_tag")
+                .add(R.id.fragment, ListPlayersFragment.newInstance(name, id), "frag3_tag")
                 .commit()
             COMPARISON_FRAGMENT -> supportFragmentManager
                 .beginTransaction()

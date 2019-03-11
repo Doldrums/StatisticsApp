@@ -43,6 +43,10 @@ class StatFragment : Fragment() {
         }
         txt_playerName.text = sPlayerName
 
+
+
+
+
     }
 
     companion object {

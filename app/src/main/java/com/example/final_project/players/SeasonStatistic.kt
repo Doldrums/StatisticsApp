@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class SeasonStatistic(
     @SerializedName("attributes")
     val statisticAttributes: List<Statistics>
-)
+) {
+}
 
 data class Statistics(
     val statisticAttributes: List<StatAttributes>
