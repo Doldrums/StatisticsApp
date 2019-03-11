@@ -2,21 +2,19 @@ package com.example.final_project.Fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.final_project.API.getPlayer
 import com.example.final_project.Adapter
 import com.example.final_project.MainActivity
+import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
-import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
-import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
@@ -29,14 +27,16 @@ class ListPlayersFragment : Fragment() {
     private var playerName: String? = null
 
     var players = mutableListOf<String>()
-    var state = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             playerName = it.getString(ARG_PARAM1)
         }
-        if (playerName!=null) players.add(playerName!!)
+        if (playerName!=null){
+            getPlayer("CHEEL40000")
+            players.add(MainActivity.playerName)
+        }
         players.add("sdfghjk")
         players.add("sdfghjk")
         players.add("sdfghjk")
@@ -55,6 +55,7 @@ class ListPlayersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         my_recycler_view.adapter = Adapter(players)
+
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {

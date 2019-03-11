@@ -8,7 +8,7 @@ import com.example.final_project.Fragments.ListPlayersFragment
 import com.example.final_project.Fragments.StatFragment
 
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +50,13 @@ class MainActivity : AppCompatActivity() {
         val STAT_FRAGMENT = 2
         val BEGIN_FRAGMENT = 3
         val COMPARSION_FRAGMENT = 4
+
+        var playerName : String = ""
+        var playerId : String = ""
+
+        fun playerDATA(id : String, name: String){
+            playerName = id
+            playerName = name
     }
 
 }

@@ -9,7 +9,15 @@ data class PlayerData(
     //списка имен, иначе получить id игрока нельзя :(
     //id нужен уже для всех остальных запросов
     val player: List<Player>
-)
+
+) {
+     fun getId(): String {
+        return player[0].id
+    }
+    fun getName(): String {
+        return player[0].attributes.name
+    }
+}
 
 data class Player(
     val id: String,

@@ -3,8 +3,9 @@ package com.example.final_project.API
 import android.util.Log
 import com.example.final_project.BuildConfig
 import com.example.final_project.MainActivity
-import com.example.final_project.players.*
-import kotlinx.android.synthetic.main.beginfragment_layout.*
+import com.example.final_project.players.PlayerData
+import com.example.final_project.players.SeasonStatistic
+import com.example.final_project.players.SeasonsData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -20,7 +21,9 @@ fun listToString(arr: List<String>): String {
     return str
 }
 
-fun getPlayer(name: String) {
+public fun getPlayer(name: String) {
+    var idPlayer = ""
+    var namePlayer = ""
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -53,6 +56,12 @@ fun getPlayer(name: String) {
             Log.d("OK", "Что-то заработало!")
             //здесь нужно сохранить имя игрока и его id, чтобы потом передать в ListPlayersFragment
             //и добавить в список
+            idPlayer = response.body()!!.getId()
+            Log.i("lol_tag", idPlayer)
+            namePlayer = response.body()!!.getName()
+            Log.i("lol_tag", namePlayer)
+
+            MainActivity.playerDATA(idPlayer, namePlayer)
 
         }
     })
