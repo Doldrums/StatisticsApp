@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.API.getPlayer
-import com.example.final_project.Adapter
+import com.example.final_project.PlayersAdapter
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import com.example.final_project.R
@@ -54,7 +54,7 @@ class ListPlayersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = Adapter(players)
+        my_recycler_view.adapter = PlayersAdapter(players)
 
 
         my_recycler_view.addOnItemTouchListener(

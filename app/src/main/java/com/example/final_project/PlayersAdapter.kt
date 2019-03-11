@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(private val playerName: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class PlayersAdapter(private val playerName: List<String>) : RecyclerView.Adapter<PlayersAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
