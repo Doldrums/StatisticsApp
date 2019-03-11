@@ -19,43 +19,44 @@ public class MainActivity : AppCompatActivity() {
 
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance("nameStart"), "kek_tag")
+                .add(R.id.fragment, ListPlayersFragment.newInstance(""), "kek_tag")
                 .commit()
 
 
     }
     fun changeFragment(fragmentId : Int, name : String, id : String){
         when (fragmentId) {
-            1 -> supportFragmentManager
+            BEGIN_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, AddPlayerFragment.newInstance(), "kek_tag")
+                .add(R.id.fragment, AddPlayerFragment.newInstance(), "frag1_tag")
                 .commit()
-            2 -> supportFragmentManager
+            STAT_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, StatFragment.newInstance(name, id), "kek_tag")
+                .add(R.id.fragment, StatFragment.newInstance(name, id), "frag2_tag")
                 .commit()
-            3 -> supportFragmentManager
+            LIST_PLAYERS_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance(name), "kek_tag")
+                .add(R.id.fragment, ListPlayersFragment.newInstance(name), "frag3_tag")
                 .commit()
-            4 -> supportFragmentManager
+            COMPARISON_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, ComparisonFragment.newInstance(), "kek_tag")
+                .add(R.id.fragment, ComparisonFragment.newInstance(), "frag4_tag")
                 .commit()
         }
     }
 
     companion object {
-        const val LIST_PLAYERS_FRAGMENT = 1
+        const val BEGIN_FRAGMENT = 1
+        const val LIST_PLAYERS_FRAGMENT = 3
         const val STAT_FRAGMENT = 2
-        const val BEGIN_FRAGMENT = 3
+        const val COMPARISON_FRAGMENT = 4
 
-        var playerName : String = ""
-        var playerId : String = ""
+        var sPlayerName : String = ""
+        var sPlayerID : String = ""
 
         fun playerDATA(id : String, name: String){
-            playerName = id
-            playerName = name
+            sPlayerName = id
+            sPlayerName = name
         }
     }
 

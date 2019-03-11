@@ -26,13 +26,11 @@ class AddPlayerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d("FRAG", "Fragment BeginFragment started")
         val playerName = input_login.text.toString()
-
-
-
+        Log.i("ooo_tag", playerName)
         btn_find.setOnClickListener {
             Log.i("kek_tag","ghj")
             val mainActivity = this@AddPlayerFragment.activity as MainActivity
-            mainActivity.changeFragment(3, "null", "null")
+            mainActivity.changeFragment(MainActivity.LIST_PLAYERS_FRAGMENT, playerName, "null")
         }
     }
 
