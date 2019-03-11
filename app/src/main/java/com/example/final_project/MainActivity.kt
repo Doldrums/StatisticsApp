@@ -46,18 +46,11 @@ public class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val BEGIN_FRAGMENT = 1
-        const val LIST_PLAYERS_FRAGMENT = 3
-        const val STAT_FRAGMENT = 2
-        const val COMPARISON_FRAGMENT = 4
+        val LIST_PLAYERS_FRAGMENT = 1
+        val STAT_FRAGMENT = 2
+        val BEGIN_FRAGMENT = 3
+        val COMPARSION_FRAGMENT = 4
 
-        var sPlayerName : String = ""
-        var sPlayerID : String = ""
-
-        fun playerDATA(id : String, name: String){
-            sPlayerName = id
-            sPlayerName = name
-        }
     }
 
 }

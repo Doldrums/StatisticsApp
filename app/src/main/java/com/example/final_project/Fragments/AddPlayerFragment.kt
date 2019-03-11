@@ -3,15 +3,21 @@ package com.example.final_project.Fragments
 
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import androidx.fragment.app.Fragment
 import com.example.final_project.API.APIservice
 import com.example.final_project.BuildConfig
+
 import com.example.final_project.MainActivity
+import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
 import com.example.final_project.R
+
 import com.example.final_project.players.PlayerData
+
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.beginfragment_layout.*
 import okhttp3.OkHttpClient
@@ -77,14 +83,11 @@ class AddPlayerFragment : Fragment() {
                 }
             })
 
+        btn_find.setOnClickListener {
+            Log.i("kek_tag","ghj")
+            val mainActivity = this@AddPlayerFragment.activity as MainActivity
+            mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT, "null", "null")
 
         }
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            AddPlayerFragment().apply {
-            }
     }
 }

@@ -65,7 +65,6 @@ public fun getPlayer(name: String) {
 
         }
     })
-
 }
 
 
