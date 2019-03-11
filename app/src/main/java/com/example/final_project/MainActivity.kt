@@ -26,19 +26,19 @@ public class MainActivity : AppCompatActivity() {
     }
     fun changeFragment(fragmentId : Int, name : String, id : String){
         when (fragmentId) {
-            1 -> supportFragmentManager
+            BEGIN_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment, AddPlayerFragment.newInstance(), "frag1_tag")
                 .commit()
-            2 -> supportFragmentManager
+            STAT_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment, StatFragment.newInstance(name, id), "frag2_tag")
                 .commit()
-            3 -> supportFragmentManager
+            LIST_PLAYERS_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment, ListPlayersFragment.newInstance(name), "frag3_tag")
                 .commit()
-            4 -> supportFragmentManager
+            COMPARISON_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment, ComparisonFragment.newInstance(), "frag4_tag")
                 .commit()
