@@ -2,7 +2,6 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.MainActivity
 import com.example.final_project.players.PlayerData
 import com.example.final_project.players.SeasonStatistic
 import com.example.final_project.players.SeasonsData
@@ -14,13 +13,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-fun listToString(arr: List<String>): String {
-    var str = ""
-    for (item in arr) str += "$item,"
-    str.dropLast(1)
-    return str
-}
 
 public fun getPlayer(name: String) {
     val interceptor = HttpLoggingInterceptor()
@@ -70,7 +62,6 @@ public fun getPlayer(name: String) {
     })
 
 }
-
 
 fun getSeasons() {
     val interceptor = HttpLoggingInterceptor()

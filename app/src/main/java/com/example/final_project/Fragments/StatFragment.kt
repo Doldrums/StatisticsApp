@@ -13,9 +13,6 @@ import kotlinx.android.synthetic.main.statfragment_layout.*
 
 class StatFragment : Fragment() {
 
-    private var name: String? = null
-    private var id: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
