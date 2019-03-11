@@ -9,9 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.API.getPlayer
-import com.example.final_project.PlayersAdapter
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
+import com.example.final_project.PlayersAdapter
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
@@ -26,7 +26,7 @@ private const val ARG_PLAYER_NAME = "paramPlayerName"
 class ListPlayersFragment : Fragment() {
     private var sPlayerName: String? = null
 
-    val players = mutableListOf<String>()
+    private val players = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
