@@ -7,24 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.final_project.MainActivity
-import com.example.final_project.MainActivity.Companion.BEGIN_FRAGMENT
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.statfragment_layout.*
 
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PLAYER_NAME = "paramPlayerName"
+private const val ARG_PLAYER_ID = "paramPlayerID"
 
 class StatFragment : Fragment() {
 
-    private var name: String? = null
-    private var id: String? = null
+    private var sPlayerName: String? = null
+    private var sPlayerID: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            name = it.getString(ARG_PARAM1)
-            id = it.getString(ARG_PARAM2)
+            sPlayerName = it.getString(ARG_PLAYER_NAME)
+            sPlayerID = it.getString(ARG_PLAYER_ID)
         }
     }
 
@@ -37,14 +36,12 @@ class StatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         Log.d("FRAG","Fragment StatFragment started")
         btn_exitStat.setOnClickListener {
-            Log.e("bag_tag", "fghj")
             val mainActivity = this@StatFragment.activity as MainActivity
-            mainActivity.changeFragment(BEGIN_FRAGMENT, "null", "null")
+            mainActivity.changeFragment(MainActivity.LIST_PLAYERS_FRAGMENT, "null", "null")
         }
-        txt_playerName.text = name
+        txt_playerName.text = sPlayerName
 
     }
 
@@ -53,8 +50,8 @@ class StatFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             StatFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_PLAYER_NAME, param1)
+                    putString(ARG_PLAYER_ID, param2)
                 }
             }
     }
