@@ -24,8 +24,5 @@ interface APIservice {
     fun getSeasons(): Call<SeasonsData>
 
     @GET("")
-    fun getSeasonStats(
-        @Query("players/") nameOfPlayer: String,
-        @Query("/seasons/") seasonId: String
-    ): Call<SeasonStatistic>
+    fun getSeasonStats(): Call<SeasonStatistic>
 }

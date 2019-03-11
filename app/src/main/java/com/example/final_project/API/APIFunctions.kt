@@ -6,6 +6,7 @@ import com.example.final_project.MainActivity
 import com.example.final_project.players.PlayerData
 import com.example.final_project.players.SeasonStatistic
 import com.example.final_project.players.SeasonsData
+import com.example.final_project.players.SimplePlayer
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -22,8 +23,6 @@ fun listToString(arr: List<String>): String {
 }
 
 public fun getPlayer(name: String) {
-    var idPlayer = ""
-    var namePlayer = ""
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -56,15 +55,20 @@ public fun getPlayer(name: String) {
             Log.d("OK", "Что-то заработало!")
             //здесь нужно сохранить имя игрока и его id, чтобы потом передать в ListPlayersFragment
             //и добавить в список
-            idPlayer = response.body()!!.getId()
-            Log.i("lol_tag", idPlayer)
-            namePlayer = response.body()!!.getName()
-            Log.i("lol_tag", namePlayer)
-
-            MainActivity.playerDATA(idPlayer, namePlayer)
-
+            initPlayer(response.body()!!.player.last().attributes.name, response.body()!!.player.last().id)
         }
+
+        public fun initPlayer(name: String, id: String): SimplePlayer {
+            return SimplePlayer(name, id)
+        }
+
+        var inj = { name: String, id: String ->
+            SimplePlayer(name, id)
+        }
+
+
     })
+
 }
 
 
@@ -104,7 +108,7 @@ fun getSeasons() {
     })
 }
 
-fun getSeasonStats(name: String, id: String) {
+fun getSeasonStats(playerName: String, seasonId: String) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -117,13 +121,13 @@ fun getSeasonStats(name: String, id: String) {
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
-        .baseUrl("https://api.pubg.com/shards/steam/")
+        .baseUrl("https://api.pubg.com/shards/steam/$playerName/seasons/$seasonId")
         .build()
 
 
     val apIservice = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getSeasonStats(name, id)
+    val call = apIservice.getSeasonStats()
 
     call.enqueue(object : Callback<SeasonStatistic> {
 

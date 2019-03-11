@@ -17,48 +17,47 @@ public class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance("nameStart"), "kek_tag")
-                .commit()
+        changeFragment(LIST_PLAYERS_FRAGMENT)
 
 
     }
-    fun changeFragment(fragmentId : Int, name : String, id : String){
+
+    fun changeFragment(fragmentId: Int) {
         when (fragmentId) {
-            1 -> supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, AddPlayerFragment.newInstance(), "kek_tag")
-                .commit()
-            2 -> supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, StatFragment.newInstance(name, id), "kek_tag")
-                .commit()
-            3 -> supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance(name), "kek_tag")
-                .commit()
-            4 -> supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, ComparisonFragment.newInstance(), "kek_tag")
-                .commit()
+            1 -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment, ListPlayersFragment(), "kek_tag")
+                    .commit()
+            }
+            2 -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment, AddPlayerFragment(), "kek_tag")
+                    .commit()
+            }
+            3 -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment, StatFragment(), "kek_tag")
+                    .commit()
+            }
+            4 -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment, ComparisonFragment(), "kek_tag")
+                    .commit()
+            }
+
         }
     }
 
     companion object {
         val LIST_PLAYERS_FRAGMENT = 1
-        val STAT_FRAGMENT = 2
-        val BEGIN_FRAGMENT = 3
+        val ADD_PLAYER_FRAGMENT = 2
+        val STAT_FRAGMENT = 3
         val COMPARSION_FRAGMENT = 4
-
-        var playerName : String = ""
-        var playerId : String = ""
-
-        fun playerDATA(id : String, name: String){
-            playerName = id
-            playerName = name
     }
-
 }
 
 
