@@ -19,7 +19,7 @@ public class MainActivity : AppCompatActivity() {
 
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment, ListPlayersFragment.newInstance("nameStart"), "kek_tag")
+                .add(R.id.fragment, ListPlayersFragment.newInstance(""), "kek_tag")
                 .commit()
 
 
@@ -46,16 +46,17 @@ public class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val LIST_PLAYERS_FRAGMENT = 1
+        const val BEGIN_FRAGMENT = 1
+        const val LIST_PLAYERS_FRAGMENT = 3
         const val STAT_FRAGMENT = 2
-        const val BEGIN_FRAGMENT = 3
+        const val COMPARISON_FRAGMENT = 4
 
-        var playerName : String = ""
-        var playerId : String = ""
+        var sPlayerName : String = ""
+        var sPlayerID : String = ""
 
         fun playerDATA(id : String, name: String){
-            playerName = id
-            playerName = name
+            sPlayerName = id
+            sPlayerName = name
         }
     }
 

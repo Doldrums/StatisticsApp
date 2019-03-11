@@ -18,24 +18,24 @@ import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
-private const val ARG_PARAM1 = "param1"
+private const val ARG_PLAYER_NAME = "paramPlayerName"
 
 
 
 
 class ListPlayersFragment : Fragment() {
-    private var playerName: String? = null
+    private var sPlayerName: String? = null
 
-    var players = mutableListOf<String>()
+    val players = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            playerName = it.getString(ARG_PARAM1)
+            sPlayerName = it.getString(ARG_PLAYER_NAME)
         }
-        if (playerName!=null){
-            getPlayer("CHEEL40000")
-            players.add(MainActivity.playerName)
+        if (sPlayerName!=""){
+            getPlayer(sPlayerName!!)
+            players.add(MainActivity.sPlayerName)
         }
         players.add("sdfghjk")
         players.add("sdfghjk")
@@ -61,7 +61,7 @@ class ListPlayersFragment : Fragment() {
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                    // в playerName передаем имя  через позицию в RV
+                    // в sPlayerName передаем имя  через позицию в RV
                     mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
 
                 }
@@ -79,7 +79,7 @@ class ListPlayersFragment : Fragment() {
 
         fab_addPlayer.setOnClickListener {
             val mainActivity = this@ListPlayersFragment.activity as MainActivity
-            mainActivity.changeFragment(1, "null", "null")
+            mainActivity.changeFragment(MainActivity.BEGIN_FRAGMENT, "null", "null")
         }
 
 
@@ -91,7 +91,7 @@ class ListPlayersFragment : Fragment() {
         fun newInstance(param1: String) =
             ListPlayersFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PLAYER_NAME, param1)
                 }
             }
     }
