@@ -2,7 +2,6 @@ package com.example.final_project.Fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnFocusChangeListener
@@ -49,26 +48,26 @@ public class ListPlayersFragment() : Fragment() {
         if (bundle != null) {
             name = bundle.getString("name")!!
             id = bundle.getString("id")!!
-            if(bundle.getBoolean("add_player")){
+            if (bundle.getBoolean("add_player")) {
                 players.add(SimplePlayer(name, id))
             }
 
         }
 
-        if (players.size==0){
+        if (players.size == 0) {
             layout_error_list.visibility = View.VISIBLE
-        } else{
+        } else {
             layout_error_list.visibility = View.INVISIBLE
         }
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = PlayersAdapter(players){spinner -> spinner.selectedItem.toString()}
+        my_recycler_view.adapter = PlayersAdapter(players) { spinner -> spinner.selectedItem.toString() }
 
         getSeasons("steam") { data ->
-            for (item in data.seasons){
+            for (item in data.seasons) {
                 seasons.add(item.id)
             }
-            spinner.adapter = ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,seasons)
+            spinner.adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, seasons)
         }
 
 
@@ -86,23 +85,25 @@ public class ListPlayersFragment() : Fragment() {
 
 
         my_recycler_view.addOnItemTouchListener(
-            RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
-                override fun onItemClick(view: View, position: Int) {
-                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                    // в playerName передаем имя  через позицию в RV
-                    mainActivity.changeFragment(STAT_FRAGMENT)
+            RecyclerItemClickListener(
+                this@ListPlayersFragment.activity!!,
+                my_recycler_view,
+                object : RecyclerItemClickListener.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+                        val mainActivity = this@ListPlayersFragment.activity as MainActivity
+                        mainActivity.changeFragment(STAT_FRAGMENT)
 
-                }
+                    }
 
-                override fun onLongItemClick(view: View?, position: Int) {
-                    item_background.setCardBackgroundColor(Color.BLUE)
-                    Toast.makeText(
-                        this@ListPlayersFragment.activity,
-                        "Длинное нажатие",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            })
+                    override fun onLongItemClick(view: View?, position: Int) {
+                        item_background.setCardBackgroundColor(Color.BLUE)
+                        Toast.makeText(
+                            this@ListPlayersFragment.activity,
+                            "Длинное нажатие",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                })
         )
 
         fab_addPlayer.setOnClickListener {

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.final_project.API.getPlayer
 import com.example.final_project.MainActivity
-import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.beginfragment_layout.*
 
