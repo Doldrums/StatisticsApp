@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.API.getSeasonStats
 import com.example.final_project.players.SimplePlayer
 
-class PlayersAdapter(private var players: List<SimplePlayer>) : RecyclerView.Adapter<PlayersAdapter.ViewHolder>() {
+class PlayersAdapter(private var players: List<SimplePlayer>, spinToString: (Spinner) -> String) :
+    RecyclerView.Adapter<PlayersAdapter.ViewHolder>() {
 
     public fun setData(items: List<SimplePlayer>) {
         this.players = items
@@ -18,7 +19,7 @@ class PlayersAdapter(private var players: List<SimplePlayer>) : RecyclerView.Ada
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.name_player_item_layout, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view){spinner: Spinner -> spinner.selectedItem.toString() }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -28,11 +29,13 @@ class PlayersAdapter(private var players: List<SimplePlayer>) : RecyclerView.Ada
 
     override fun getItemCount() = players.size
 
-    class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
+    class ViewHolder(itemView: View?,spinToString: (Spinner) -> String) : RecyclerView.ViewHolder(itemView!!) {
         val playerName = itemView?.findViewById(R.id.name) as TextView
+
         init {
             itemView!!.setOnClickListener {
-                getSeasonStats(playerName.text.toString(),) //TODO("вот тут хочу spinner.selectedItem.toString"))
+                getSeasonStats(playerName.text.toString(),spinToString.invoke()) //TODO("вот тут хочу spinner.selectedItem.toString"))
+                //TODO(или строку)
 
             }
         }

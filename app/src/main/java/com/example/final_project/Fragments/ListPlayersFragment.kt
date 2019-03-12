@@ -48,8 +48,7 @@ class ListPlayersFragment() : Fragment() {
         }
         players.add(SimplePlayer(name, id))
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = PlayersAdapter(players)
-
+        my_recycler_view.adapter = PlayersAdapter(players){spinner -> spinner.selectedItem.toString()}
         //надо получить сезоны
         getSeasons("steam") { data ->
             for (item in data.seasons){
