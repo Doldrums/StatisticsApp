@@ -12,7 +12,7 @@
         advance
     </string>
     <string name="item_txt_name">PLAYER123</string>
-    <string name="list_txt_title">Choose a player name</string>
+    <string name="list_txt_title">Choose a player name and season</string>
     <string name="stat_txt_title">PlayerName</string>
     <string name="stat_txt_rank">Ranking</string>
 

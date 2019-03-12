@@ -50,8 +50,9 @@ public class ListPlayersFragment() : Fragment() {
         if (bundle != null) {
             name = bundle.getString("name")!!
             id = bundle.getString("id")!!
+            players.add(SimplePlayer(name, id))
         }
-        players.add(SimplePlayer(name, id))
+
 
 
         if (players.size==0){
@@ -90,7 +91,7 @@ public class ListPlayersFragment() : Fragment() {
             RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                    // в playerName передаем имя  через позицию в RV
+
                     mainActivity.changeFragment(STAT_FRAGMENT)
 
                 }
