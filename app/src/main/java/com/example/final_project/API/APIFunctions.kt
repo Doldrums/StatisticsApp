@@ -5,6 +5,7 @@ import com.example.final_project.BuildConfig
 import com.example.final_project.players.PlayerData
 import com.example.final_project.players.SeasonStatistic
 import com.example.final_project.players.SeasonsData
+import com.example.final_project.players.SimplePlayer
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -13,16 +14,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun listToString(arr: List<String>): String {
-    var str = ""
-    for (item in arr) str += "$item,"
-    str.dropLast(1)
-    return str
-}
-
-public fun getPlayer(name: String) {
-    var idPlayer = ""
-    var namePlayer = ""
+public fun getPlayer(name: String,callback: (PlayerData) -> Unit) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -52,22 +44,17 @@ public fun getPlayer(name: String) {
 
 
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
-            Log.d("OK", "Что-то заработало!")
-            //здесь нужно сохранить имя игрока и его id, чтобы потом передать в ListPlayersFragment
-            //и добавить в список
-            idPlayer = response.body()!!.getId()
-            Log.i("lol_tag", idPlayer)
-            namePlayer = response.body()!!.getName()
-            Log.i("lol_tag", namePlayer)
-
-           // MainActivity.playerDATA(idPlayer, namePlayer)
-
+            Log.d("OK", "Игрок получен!")
+            //здесь нужно сохранить имя игрока и его id
+            val data = response.body()
+            if (data != null) callback.invoke(data)
         }
+
     })
+
 }
 
-
-fun getSeasons() {
+fun getSeasons(steam:String,callback: (SeasonsData) -> Unit) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -80,7 +67,7 @@ fun getSeasons() {
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
-        .baseUrl("https://api.pubg.com/shards/steam/")
+        .baseUrl("https://api.pubg.com/shards/$steam/")
         .build()
 
 
@@ -97,13 +84,15 @@ fun getSeasons() {
 
 
         override fun onResponse(call: Call<SeasonsData>, response: Response<SeasonsData>) {
-            Log.d("OK", "Что-то заработало!")
+            Log.d("OK", "Сезоны получены!")
             //здесь нужно куда-то сохранять список сезонов
+            val data = response.body()
+            if (data != null) callback.invoke(data)
         }
     })
 }
 
-fun getSeasonStats(name: String, id: String) {
+fun getSeasonStats(playerName: String, seasonId: String) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -116,13 +105,13 @@ fun getSeasonStats(name: String, id: String) {
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
-        .baseUrl("https://api.pubg.com/shards/steam/")
+        .baseUrl("https://api.pubg.com/shards/steam/$playerName/seasons/$seasonId")
         .build()
 
 
     val apIservice = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getSeasonStats(name, id)
+    val call = apIservice.getSeasonStats()
 
     call.enqueue(object : Callback<SeasonStatistic> {
 

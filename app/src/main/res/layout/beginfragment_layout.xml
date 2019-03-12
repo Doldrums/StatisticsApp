@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/color_background_main">
+        android:background="@color/color_background_main" android:id="@+id/parent">
 
     <ImageView android:layout_width="200dp"
                android:layout_gravity="center_horizontal"

@@ -28,12 +28,4 @@ class ComparisonFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            ComparisonFragment().apply {
-
-            }
-    }
 }
