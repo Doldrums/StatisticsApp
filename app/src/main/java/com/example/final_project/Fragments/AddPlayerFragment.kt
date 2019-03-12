@@ -29,7 +29,7 @@ class AddPlayerFragment : Fragment() {
         btn_find.setOnClickListener {
             getPlayer(input_login.text.toString()) { data ->
                 val mainActivity = this.activity as MainActivity
-                mainActivity.changeFragment(MainActivity.LIST_PLAYERS_FRAGMENT,data.getName(),data.getId())
+                mainActivity.addPlayer(MainActivity.LIST_PLAYERS_FRAGMENT, data.getName(), data.getId(),true)
             }
         }
     }

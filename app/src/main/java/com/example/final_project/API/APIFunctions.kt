@@ -44,7 +44,7 @@ public fun getPlayer(name: String,callback: (PlayerData) -> Unit) {
 
 
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
-            Log.d("OK", "Что-то заработало!")
+            Log.d("OK", "Игрок получен!")
             //здесь нужно сохранить имя игрока и его id
             val data = response.body()
             if (data != null) callback.invoke(data)
@@ -55,7 +55,7 @@ public fun getPlayer(name: String,callback: (PlayerData) -> Unit) {
 
 }
 
-fun getSeasons() {
+fun getSeasons(steam:String,callback: (SeasonsData) -> Unit) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -68,7 +68,7 @@ fun getSeasons() {
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
-        .baseUrl("https://api.pubg.com/shards/steam/")
+        .baseUrl("https://api.pubg.com/shards/$steam/")
         .build()
 
 
@@ -85,8 +85,10 @@ fun getSeasons() {
 
 
         override fun onResponse(call: Call<SeasonsData>, response: Response<SeasonsData>) {
-            Log.d("OK", "Что-то заработало!")
+            Log.d("OK", "Сезоны получены!")
             //здесь нужно куда-то сохранять список сезонов
+            val data = response.body()
+            if (data != null) callback.invoke(data)
         }
     })
 }

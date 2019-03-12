@@ -1,12 +1,12 @@
 package com.example.final_project
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.final_project.Fragments.AddPlayerFragment
 import com.example.final_project.Fragments.ComparisonFragment
 import com.example.final_project.Fragments.ListPlayersFragment
 import com.example.final_project.Fragments.StatFragment
-import kotlinx.android.synthetic.main.mainactivity_layout.*
 
 
 public class MainActivity : AppCompatActivity() {
@@ -18,25 +18,38 @@ public class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-        changeFragment(LIST_PLAYERS_FRAGMENT, "", "")
+        addPlayer(LIST_PLAYERS_FRAGMENT, "", "",false)
 
     }
 
-    fun changeFragment(fragmentId: Int, name: String, id: String) {
-
-
+    fun addPlayer(fragmentId: Int, name: String, id: String, doWeAddPlayer: Boolean) {
         when (fragmentId) {
             1 -> {
-                val currentFrag = ListPlayersFragment()
-                if (!name.equals("") and !id.equals("")) {
-                    val bundle = Bundle()
-                    bundle.putString("name",name)
-                    bundle.putString("id",id)
-                    currentFrag.arguments = bundle
-                }
+                if (doWeAddPlayer) {
+                    val currentFrag = ListPlayersFragment()
+                    Log.d("bug", "lpf_start")
+                    if (!name.equals("") and !id.equals("")) {
+                        val bundle = Bundle()
+                        bundle.putString("name", name)
+                        bundle.putString("id", id)
+                        currentFrag.arguments = bundle
+                    }
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment, currentFrag, "kek_tag")
+                        .commit()
+                } else
+                    changeFragment(fragmentId)
+            }
+        }
+    }
+
+    fun changeFragment(fragmentId: Int) {
+        when (fragmentId) {
+            1 -> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.fragment, currentFrag, "kek_tag")
+                    .replace(R.id.fragment, ListPlayersFragment(), "kek_tag")
                     .commit()
             }
             2 -> {

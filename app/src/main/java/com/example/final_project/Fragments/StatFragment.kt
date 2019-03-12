@@ -30,7 +30,7 @@ class StatFragment : Fragment() {
         Log.d("FRAG", "Fragment StatFragment started")
         btn_exitStat.setOnClickListener {
             val mainActivity = this@StatFragment.activity as MainActivity
-            mainActivity.changeFragment(ADD_PLAYER_FRAGMENT,"","")
+            mainActivity.changeFragment(ADD_PLAYER_FRAGMENT)
         }
     }
 }
