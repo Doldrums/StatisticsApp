@@ -3,7 +3,7 @@ package com.example.final_project.Fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,7 +69,7 @@ class AddPlayerFragment : Fragment() {
 
                 override fun onFailure(call: Call<PlayerData>, t: Throwable) {
                     Log.d("FAIL", "FAIL что-то не так!")
-                    Snackbar.make(it,"Something is wrong",Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(it, "Something is wrong", Snackbar.LENGTH_LONG).show()
                 }
 
 
@@ -79,15 +79,17 @@ class AddPlayerFragment : Fragment() {
                     mainActivity.changeFragment(
                         MainActivity.LIST_PLAYERS_FRAGMENT,
                         response.body()!!.getName(),
-                        response.body()!!.getId())
+                        response.body()!!.getId()
+                    )
                 }
             })
 
-        btn_find.setOnClickListener {
-            Log.i("kek_tag","ghj")
-            val mainActivity = this@AddPlayerFragment.activity as MainActivity
-            mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT, "null", "null")
+            btn_find.setOnClickListener {
+                Log.i("kek_tag", "ghj")
+                val mainActivity = this@AddPlayerFragment.activity as MainActivity
+                mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT, "null", "null")
 
+            }
         }
     }
 }

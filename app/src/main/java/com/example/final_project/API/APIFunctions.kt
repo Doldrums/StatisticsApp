@@ -2,7 +2,6 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.MainActivity
 import com.example.final_project.players.PlayerData
 import com.example.final_project.players.SeasonStatistic
 import com.example.final_project.players.SeasonsData
@@ -61,7 +60,7 @@ public fun getPlayer(name: String) {
             namePlayer = response.body()!!.getName()
             Log.i("lol_tag", namePlayer)
 
-            MainActivity.playerDATA(idPlayer, namePlayer)
+           // MainActivity.playerDATA(idPlayer, namePlayer)
 
         }
     })

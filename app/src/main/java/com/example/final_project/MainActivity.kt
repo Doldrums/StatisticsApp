@@ -2,8 +2,6 @@ package com.example.final_project
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.final_project.Fragments.AddPlayerFragment
-import com.example.final_project.Fragments.ComparisonFragment
 import com.example.final_project.Fragments.ListPlayersFragment
 import com.example.final_project.Fragments.StatFragment
 
@@ -24,12 +22,8 @@ public class MainActivity : AppCompatActivity() {
 
 
     }
-    fun changeFragment(fragmentId : Int, name : String, id : String){
+    fun changeFragment(fragmentId : Int, name : String, id : String) {
         when (fragmentId) {
-            BEGIN_FRAGMENT -> supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, AddPlayerFragment.newInstance(), "frag1_tag")
-                .commit()
             STAT_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment, StatFragment.newInstance(name, id), "frag2_tag")
@@ -37,10 +31,6 @@ public class MainActivity : AppCompatActivity() {
             LIST_PLAYERS_FRAGMENT -> supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment, ListPlayersFragment.newInstance(name, id), "frag3_tag")
-                .commit()
-            COMPARISON_FRAGMENT -> supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment, ComparisonFragment.newInstance(), "frag4_tag")
                 .commit()
         }
     }
