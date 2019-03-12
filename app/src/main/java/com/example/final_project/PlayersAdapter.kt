@@ -38,8 +38,6 @@ class PlayersAdapter(private var players: List<SimplePlayer>, spinToString: (Spi
             itemView!!.setOnClickListener {
                 Log.i("mmm_tag", ListPlayersFragment.season)
                 getSeasonStats(playerName.text.toString(),ListPlayersFragment.season)
-                //TODO("вот тут хочу spinner.selectedItem.toString"))
-                //TODO(или строку)
 
             }
         }
