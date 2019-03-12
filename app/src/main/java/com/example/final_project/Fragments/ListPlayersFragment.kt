@@ -1,49 +1,36 @@
 package com.example.final_project.Fragments
 
-import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.final_project.API.getSeasons
 import com.example.final_project.MainActivity
-import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
+import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
 import com.example.final_project.PlayersAdapter
 import com.example.final_project.R
-import com.example.final_project.RecyclerItemClickListener
+import com.example.final_project.players.SeasonsData
+import com.example.final_project.players.SimplePlayer
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
-import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
-private const val ARG_PLAYER_NAME = "paramPlayerName"
-private const val ARG_PLAYER_ID = "paramPlayerID"
+class ListPlayersFragment() : Fragment() {
+    var players = mutableListOf<SimplePlayer>()
+    var seasons = mutableListOf<String>()
 
-
-
-
-class ListPlayersFragment : Fragment() {
-    private var sPlayerName: String? = null
-    private var sPlayerID: String? = null
-
-    private val playersName = mutableListOf<String>()
-    private val playersID = mutableListOf<String>()
+    private var name = ""
+    private var id = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            sPlayerName = it.getString(ARG_PLAYER_NAME)
-            sPlayerID = it.getString(ARG_PLAYER_ID)
-
-        }
-        if (sPlayerName!="" && sPlayerID!=""){
-            playersName.add(sPlayerName!!)
-            playersID.add(sPlayerID!!)
-        }
+        Log.d("df","sf")
 
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +42,14 @@ class ListPlayersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+        if (bundle != null) {
+            name = bundle.getString("name")!!
+            id = bundle.getString("id")!!
+        }
+        players.add(SimplePlayer(name, id))
+
+
         if (playersName.size==0){
             layout_error_list.visibility = View.VISIBLE
         } else{
@@ -62,48 +57,47 @@ class ListPlayersFragment : Fragment() {
         }
 
 
+
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = PlayersAdapter(playersName)
-
-
-        my_recycler_view.addOnItemTouchListener(
-            RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
-                override fun onItemClick(view: View, position: Int) {
-                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                    mainActivity.changeFragment(STAT_FRAGMENT,playersName[position], playersID[position])
-
-                }
-
-                override fun onLongItemClick(view: View?, position: Int) {
-                    item_background.setCardBackgroundColor(Color.BLUE)
-                    Toast.makeText(
-                        this@ListPlayersFragment.activity,
-                        "Длинное нажатие",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            })
-        )
-
-        fab_addPlayer.setOnClickListener {
-            val mainActivity = this@ListPlayersFragment.activity as MainActivity
-            mainActivity.changeFragment(MainActivity.BEGIN_FRAGMENT, "null", "null")
+        my_recycler_view.adapter = PlayersAdapter(players){spinner -> spinner.selectedItem.toString()}
+        //надо получить сезоны
+        getSeasons("steam") { data ->
+            for (item in data.seasons){
+                seasons.add(item.id)
+            }
+            spinner.adapter = ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,seasons)
         }
 
 
 
-    }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ListPlayersFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PLAYER_NAME, param1)
-                    putString(ARG_PLAYER_ID,param2)
-                }
-            }
-    }
+//        my_recycler_view.addOnItemTouchListener(
+//            RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
+//                override fun onItemClick(view: View, position: Int) {
+//                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
+//                    // в playerName передаем имя  через позицию в RV
+//                    mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
+//
+//                }
+//
+//                override fun onLongItemClick(view: View?, position: Int) {
+//                    item_background.setCardBackgroundColor(Color.BLUE)
+//                    Toast.makeText(
+//                        this@ListPlayersFragment.activity,
+//                        "Длинное нажатие",
+//                        Toast.LENGTH_LONG
+//                    ).show()
+//                }
+//            })
+//        )
 
+        fab_addPlayer.setOnClickListener {
+            val mainActivity = this@ListPlayersFragment.activity as MainActivity
+            mainActivity.changeFragment(ADD_PLAYER_FRAGMENT)
+        }
+
+
+    }
 
 }
+

@@ -4,17 +4,24 @@ import com.google.gson.annotations.SerializedName
 
 data class SeasonsData(
     @SerializedName("data")
-    val season: List<Season>
+    val seasons: List<Season>
 )
 
 data class Season(
+    val id:String,
     @SerializedName("attributes")
     val attributes: SeasonAttributes
-)
+
+) {
+    override fun toString(): String {
+        return id
+    }
+}
 
 
 data class SeasonAttributes(
-    val isCurrentSeason: Boolean,
-    val isOffseason: Boolean
+    val isCurrentSeason: String,
+    val isOffseason: String
 )
+
 
