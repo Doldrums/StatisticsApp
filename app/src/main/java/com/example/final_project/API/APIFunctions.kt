@@ -50,7 +50,6 @@ public fun getPlayer(name: String,callback: (PlayerData) -> Unit) {
             if (data != null) callback.invoke(data)
         }
 
-
     })
 
 }
