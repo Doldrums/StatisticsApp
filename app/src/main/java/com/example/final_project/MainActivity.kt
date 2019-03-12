@@ -3,6 +3,8 @@ package com.example.final_project
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.final_project.Fragments.AddPlayerFragment
+import com.example.final_project.Fragments.ComparisonFragment
 import com.example.final_project.Fragments.ListPlayersFragment
 import com.example.final_project.Fragments.StatFragment
 
@@ -16,8 +18,7 @@ public class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-        addPlayer(LIST_PLAYERS_FRAGMENT, "", "",false)
-
+        changeFragment(LIST_PLAYERS_FRAGMENT)
     }
 
     fun addPlayer(fragmentId: Int, name: String, id: String, doWeAddPlayer: Boolean) {

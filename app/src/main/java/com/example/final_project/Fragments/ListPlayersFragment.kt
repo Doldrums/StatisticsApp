@@ -1,25 +1,29 @@
 package com.example.final_project.Fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.SpinnerAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.API.getSeasons
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
+import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import com.example.final_project.PlayersAdapter
 import com.example.final_project.R
-import com.example.final_project.players.SeasonsData
+import com.example.final_project.RecyclerItemClickListener
 import com.example.final_project.players.SimplePlayer
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
+import kotlinx.android.synthetic.main.name_player_item_layout.*
 
 
-class ListPlayersFragment() : Fragment() {
+public class ListPlayersFragment() : Fragment() {
     var players = mutableListOf<SimplePlayer>()
     var seasons = mutableListOf<String>()
 
@@ -50,7 +54,7 @@ class ListPlayersFragment() : Fragment() {
         players.add(SimplePlayer(name, id))
 
 
-        if (playersName.size==0){
+        if (players.size==0){
             layout_error_list.visibility = View.VISIBLE
         } else{
             layout_error_list.visibility = View.INVISIBLE
@@ -69,27 +73,38 @@ class ListPlayersFragment() : Fragment() {
         }
 
 
+        spinner.onFocusChangeListener = OnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                season = spinner.selectedItem.toString()
+            } else {
+
+            }
+        }
 
 
-//        my_recycler_view.addOnItemTouchListener(
-//            RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
-//                override fun onItemClick(view: View, position: Int) {
-//                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
-//                    // в playerName передаем имя  через позицию в RV
-//                    mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
-//
-//                }
-//
-//                override fun onLongItemClick(view: View?, position: Int) {
-//                    item_background.setCardBackgroundColor(Color.BLUE)
-//                    Toast.makeText(
-//                        this@ListPlayersFragment.activity,
-//                        "Длинное нажатие",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                }
-//            })
-//        )
+
+
+
+
+        my_recycler_view.addOnItemTouchListener(
+            RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
+                override fun onItemClick(view: View, position: Int) {
+                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
+                    // в playerName передаем имя  через позицию в RV
+                    mainActivity.changeFragment(STAT_FRAGMENT)
+
+                }
+
+                override fun onLongItemClick(view: View?, position: Int) {
+                    item_background.setCardBackgroundColor(Color.BLUE)
+                    Toast.makeText(
+                        this@ListPlayersFragment.activity,
+                        "Длинное нажатие",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+        )
 
         fab_addPlayer.setOnClickListener {
             val mainActivity = this@ListPlayersFragment.activity as MainActivity
@@ -99,5 +114,8 @@ class ListPlayersFragment() : Fragment() {
 
     }
 
+    companion object {
+        public var season = ""
+    }
 }
 
