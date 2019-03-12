@@ -18,7 +18,7 @@ public class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-        addPlayer(LIST_PLAYERS_FRAGMENT, "", "",false)
+        changeFragment(LIST_PLAYERS_FRAGMENT)
 
     }
 
@@ -32,6 +32,7 @@ public class MainActivity : AppCompatActivity() {
                         val bundle = Bundle()
                         bundle.putString("name", name)
                         bundle.putString("id", id)
+                        bundle.putBoolean("add_player",doWeAddPlayer)
                         currentFrag.arguments = bundle
                     }
                     supportFragmentManager

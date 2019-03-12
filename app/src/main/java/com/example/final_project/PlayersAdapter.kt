@@ -32,13 +32,13 @@ class PlayersAdapter(private var players: List<SimplePlayer>, spinToString: (Spi
     class ViewHolder(itemView: View?,spinToString: (Spinner) -> String) : RecyclerView.ViewHolder(itemView!!) {
         val playerName = itemView?.findViewById(R.id.name) as TextView
 
-        init {
-            itemView!!.setOnClickListener {
-                getSeasonStats(playerName.text.toString(),spinToString.invoke()) //TODO("вот тут хочу spinner.selectedItem.toString"))
-                //TODO(или строку)
-
-            }
-        }
+//        init {
+//            itemView!!.setOnClickListener {
+//                getSeasonStats(playerName.text.toString(),spinToString.invoke()) //TODO("вот тут хочу spinner.selectedItem.toString"))
+//                //TODO(или строку)
+//
+//            }
+//        }
     }
 
 

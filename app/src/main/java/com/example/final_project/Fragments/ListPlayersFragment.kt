@@ -28,7 +28,6 @@ class ListPlayersFragment() : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("df","sf")
 
     }
 
@@ -41,15 +40,20 @@ class ListPlayersFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val bundle = this.arguments
         if (bundle != null) {
             name = bundle.getString("name")!!
             id = bundle.getString("id")!!
+            if(bundle.getBoolean("add_player")){
+                players.add(SimplePlayer(name, id))
+            }
+
         }
-        players.add(SimplePlayer(name, id))
+
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         my_recycler_view.adapter = PlayersAdapter(players){spinner -> spinner.selectedItem.toString()}
-        //надо получить сезоны
+
         getSeasons("steam") { data ->
             for (item in data.seasons){
                 seasons.add(item.id)
@@ -57,28 +61,6 @@ class ListPlayersFragment() : Fragment() {
             spinner.adapter = ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,seasons)
         }
 
-
-
-
-//        my_recycler_view.addOnItemTouchListener(
-//            RecyclerItemClickListener(this@ListPlayersFragment.activity!!, my_recycler_view, object : RecyclerItemClickListener.OnItemClickListener {
-//                override fun onItemClick(view: View, position: Int) {
-//                    val mainActivity = this@ListPlayersFragment.activity as MainActivity
-//                    // в playerName передаем имя  через позицию в RV
-//                    mainActivity.changeFragment(STAT_FRAGMENT,players[position], "null")
-//
-//                }
-//
-//                override fun onLongItemClick(view: View?, position: Int) {
-//                    item_background.setCardBackgroundColor(Color.BLUE)
-//                    Toast.makeText(
-//                        this@ListPlayersFragment.activity,
-//                        "Длинное нажатие",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                }
-//            })
-//        )
 
         fab_addPlayer.setOnClickListener {
             val mainActivity = this@ListPlayersFragment.activity as MainActivity
