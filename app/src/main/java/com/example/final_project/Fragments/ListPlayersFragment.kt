@@ -54,6 +54,14 @@ class ListPlayersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (playersName.size==0){
+            layout_error_list.visibility = View.VISIBLE
+        } else{
+            layout_error_list.visibility = View.INVISIBLE
+        }
+
+
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         my_recycler_view.adapter = PlayersAdapter(playersName)
 
