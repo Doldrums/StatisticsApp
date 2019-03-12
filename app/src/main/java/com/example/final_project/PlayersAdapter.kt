@@ -1,5 +1,6 @@
 package com.example.final_project
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.API.getSeasonStats
+import com.example.final_project.Fragments.ListPlayersFragment
 import com.example.final_project.players.SimplePlayer
 
 class PlayersAdapter(private var players: List<SimplePlayer>, spinToString: (Spinner) -> String) :
@@ -32,13 +34,15 @@ class PlayersAdapter(private var players: List<SimplePlayer>, spinToString: (Spi
     class ViewHolder(itemView: View?,spinToString: (Spinner) -> String) : RecyclerView.ViewHolder(itemView!!) {
         val playerName = itemView?.findViewById(R.id.name) as TextView
 
-//        init {
-//            itemView!!.setOnClickListener {
-//                getSeasonStats(playerName.text.toString(),spinToString.invoke()) //TODO("вот тут хочу spinner.selectedItem.toString"))
-//                //TODO(или строку)
-//
-//            }
-//        }
+        init {
+            itemView!!.setOnClickListener {
+                Log.i("mmm_tag", ListPlayersFragment.season)
+                getSeasonStats(playerName.text.toString(),ListPlayersFragment.season)
+                //TODO("вот тут хочу spinner.selectedItem.toString"))
+                //TODO(или строку)
+
+            }
+        }
     }
 
 
