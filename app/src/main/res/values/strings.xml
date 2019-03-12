@@ -27,4 +27,8 @@
     <string name="squad">squad</string>
     <string name="squad_fpp">squad-fpp</string>
 
+    <string name="List_error">Oops! It seems you have not added a single player to view statistics. Please go and enter
+        your nickname to get data.
+    </string>
+
 </resources>

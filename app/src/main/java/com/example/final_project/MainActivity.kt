@@ -3,8 +3,6 @@ package com.example.final_project
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.final_project.Fragments.AddPlayerFragment
-import com.example.final_project.Fragments.ComparisonFragment
 import com.example.final_project.Fragments.ListPlayersFragment
 import com.example.final_project.Fragments.StatFragment
 
@@ -70,6 +68,7 @@ public class MainActivity : AppCompatActivity() {
                     .replace(R.id.fragment, ComparisonFragment(), "kek_tag")
                     .commit()
             }
+
 
         }
     }

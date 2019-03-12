@@ -30,6 +30,18 @@ class AddPlayerFragment : Fragment() {
             getPlayer(input_login.text.toString()) { data ->
                 val mainActivity = this.activity as MainActivity
                 mainActivity.addPlayer(MainActivity.LIST_PLAYERS_FRAGMENT, data.getName(), data.getId(),true)
+
+        val playerName = input_login.text.toString()
+
+
+            
+
+            btn_find.setOnClickListener {
+                Log.i("kek_tag", "ghj")
+                val mainActivity = this@AddPlayerFragment.activity as MainActivity
+                mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT, "null", "null")
+
+
             }
         }
     }
