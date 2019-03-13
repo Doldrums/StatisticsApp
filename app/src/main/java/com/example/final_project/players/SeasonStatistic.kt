@@ -1,24 +1,39 @@
 package com.example.final_project.players
 
+import android.provider.Settings.Global.getString
+import com.example.final_project.R
 import com.google.gson.annotations.SerializedName
 
-data class SeasonStatistic(
-    @SerializedName("attributes")
-    val statisticAttributes: List<Statistics>
-) {
-}
-
-data class Statistics(
-    val statisticAttributes: List<StatAttributes>
+data class SeasonStatsData(
+    @SerializedName("data")
+    val data:SeasonStatistic
 )
 
+data class SeasonStatistic(
+    val type: String,
+    @SerializedName("attributes")
+    val seasonAttributes: StatAttributes
+)
+
+
 data class StatAttributes(
-    val gameModeStats: List<Gamemode>
+    val gameModeStats: Gamemode
 )
 
 data class Gamemode(
-    val type: String,    //возможные значения: duo, duo-fpp, solo, solo-fpp, squad, squad-fpp,
-    val dannie: List<Dannie>                    //TODO("переназвать")
+    @SerializedName("duo")
+    val duo: Dannie ,
+    @SerializedName("duo-fpp")
+    val duo_fpp: Dannie,
+    @SerializedName("solo")
+    val solo: Dannie,
+    @SerializedName("solo-fpp")
+    val solo_fpp: Dannie,
+    @SerializedName("squad")
+    val squad: Dannie,
+    @SerializedName("squad-fpp")
+    val squad_fpp: Dannie
+
 )
 
 data class Dannie(
@@ -58,4 +73,5 @@ data class Dannie(
     val winPoints: Int,
     val wins: Int
 )
+
 

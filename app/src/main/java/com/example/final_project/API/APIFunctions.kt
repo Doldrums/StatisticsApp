@@ -2,10 +2,7 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.PlayerData
-import com.example.final_project.players.SeasonStatistic
-import com.example.final_project.players.SeasonsData
-import com.example.final_project.players.SimplePlayer
+import com.example.final_project.players.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -54,7 +51,7 @@ public fun getPlayer(name: String,callback: (PlayerData) -> Unit) {
 
 }
 
-fun getSeasons(steam:String,callback: (SeasonsData) -> Unit) {
+fun getSeasons(platform:String,callback: (SeasonsData) -> Unit) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -67,7 +64,7 @@ fun getSeasons(steam:String,callback: (SeasonsData) -> Unit) {
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
-        .baseUrl("https://api.pubg.com/shards/$steam/")
+        .baseUrl("https://api.pubg.com/shards/$platform/")
         .build()
 
 
@@ -92,7 +89,7 @@ fun getSeasons(steam:String,callback: (SeasonsData) -> Unit) {
     })
 }
 
-fun getSeasonStats(playerName: String, seasonId: String) {
+fun getSeasonStats(playerId: String, seasonId: String,callback: (SeasonStatsData) -> Unit) {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level =
         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -105,25 +102,27 @@ fun getSeasonStats(playerName: String, seasonId: String) {
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
-        .baseUrl("https://api.pubg.com/shards/steam/$playerName/seasons/$seasonId")
+        .baseUrl("https://api.pubg.com/shards/pc-ru/players/$playerId/")
         .build()
 
 
     val apIservice = retrofit.create(APIservice::class.java)
 
-    val call = apIservice.getSeasonStats()
+    val call = apIservice.getSeasonStats(seasonId)
 
-    call.enqueue(object : Callback<SeasonStatistic> {
+    call.enqueue(object : Callback<SeasonStatsData> {
 
 
-        override fun onFailure(call: Call<SeasonStatistic>, t: Throwable) {
+        override fun onFailure(call: Call<SeasonStatsData>, t: Throwable) {
             Log.d("FAIL", "FAIL что-то не так!")
         }
 
 
-        override fun onResponse(call: Call<SeasonStatistic>, response: Response<SeasonStatistic>) {
-            Log.d("OK", "Что-то заработало!")
+        override fun onResponse(call: Call<SeasonStatsData>, response: Response<SeasonStatsData>) {
+            Log.d("OK", "Статистика за сезон получена!")
             //здесь нужно запускать функцию, которая отобразит статистику в StatFragment
+            val data = response.body()
+            if (data != null) callback.invoke(data)
         }
     })
 }
