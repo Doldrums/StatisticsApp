@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.final_project.MainActivity
-import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
+import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
 import com.example.final_project.R
 import kotlinx.android.synthetic.main.statfragment_layout.*
 
@@ -30,7 +30,7 @@ class StatFragment : Fragment() {
         Log.d("FRAG", "Fragment StatFragment started")
         btn_exitStat.setOnClickListener {
             val mainActivity = this@StatFragment.activity as MainActivity
-            mainActivity.changeFragment(ADD_PLAYER_FRAGMENT)
+            mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT)
         }
     }
 }

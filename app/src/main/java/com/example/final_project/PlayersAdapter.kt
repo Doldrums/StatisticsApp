@@ -46,8 +46,4 @@ class PlayersAdapter(private var players: List<SimplePlayer>, spinToString: (Spi
 
 }
 
-//                { data ->
-//                    val mainActivity = this.activity as MainActivity
-//                    mainActivity.changeFragment(MainActivity.LIST_PLAYERS_FRAGMENT,data.getName(),data.getId())
-//                }
 
