@@ -15,6 +15,9 @@
     <string name="list_txt_title">Choose a player name</string>
     <string name="stat_txt_title">PlayerName</string>
     <string name="stat_txt_rank">Ranking</string>
+    <string name="stat_txt_kills">Kills</string>
+    <string name="stat_txt_graphs">Graphs</string>
+    <string name="stat_txt_other">Other</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -63,7 +66,6 @@
     <string name="timeSurvived">Time survived</string>
     <string name="top10s">Top10\'s</string>
     <string name="vehicleDestroys">Vehicle destroys</string>
-    <string name="walkDistance">Walk distance</string>
     <string name="weaponsAcquired">Weapons acquired</string>
     <string name="weeklyKills">Weekly kills</string>
     <string name="winPoints">Win points</string>

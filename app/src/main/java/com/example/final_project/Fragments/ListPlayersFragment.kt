@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
-import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
 import com.example.final_project.PlayersAdapter
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
@@ -87,10 +86,6 @@ public class ListPlayersFragment() : Fragment() {
         }
 
 
-    }
-
-    companion object {
-        public var season = ""
     }
 }
 
