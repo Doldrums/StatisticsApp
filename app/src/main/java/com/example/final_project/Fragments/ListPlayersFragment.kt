@@ -4,13 +4,10 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.final_project.API.getSeasons
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
 import com.example.final_project.MainActivity.Companion.STAT_FRAGMENT
@@ -20,11 +17,12 @@ import com.example.final_project.RecyclerItemClickListener
 import com.example.final_project.players.SimplePlayer
 import kotlinx.android.synthetic.main.listplayerfragment_layout.*
 import kotlinx.android.synthetic.main.name_player_item_layout.*
+import kotlinx.android.synthetic.main.name_player_item_layout.view.*
 
 
 public class ListPlayersFragment() : Fragment() {
     var players = mutableListOf<SimplePlayer>()
-    var seasons = mutableListOf<String>()
+
 
     private var name = ""
     private var id = ""
@@ -51,7 +49,6 @@ public class ListPlayersFragment() : Fragment() {
             if (bundle.getBoolean("add_player")) {
                 players.add(SimplePlayer(name, id))
             }
-
         }
 
         if (players.size == 0) {
@@ -61,28 +58,7 @@ public class ListPlayersFragment() : Fragment() {
         }
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
-        my_recycler_view.adapter = PlayersAdapter(players) { spinner -> spinner.selectedItem.toString() }
-
-        getSeasons("steam") { data ->
-            for (item in data.seasons) {
-                seasons.add(item.id)
-            }
-            spinner.adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, seasons)
-        }
-
-
-        spinner.onFocusChangeListener = OnFocusChangeListener { v, hasFocus ->
-            if (hasFocus) {
-                season = spinner.selectedItem.toString()
-            } else {
-
-            }
-        }
-
-
-
-
-
+        my_recycler_view.adapter = PlayersAdapter(players)
 
         my_recycler_view.addOnItemTouchListener(
             RecyclerItemClickListener(
@@ -91,8 +67,7 @@ public class ListPlayersFragment() : Fragment() {
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
                         val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                        mainActivity.changeFragment(STAT_FRAGMENT)
-
+                        mainActivity.setStatisticsFragment(MainActivity.STAT_FRAGMENT, view.name.text.toString(),id)
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {

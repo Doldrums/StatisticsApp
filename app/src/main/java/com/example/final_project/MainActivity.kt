@@ -1,7 +1,6 @@
 package com.example.final_project
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.final_project.Fragments.AddPlayerFragment
 import com.example.final_project.Fragments.ComparisonFragment
@@ -24,15 +23,14 @@ public class MainActivity : AppCompatActivity() {
 
     fun addPlayer(fragmentId: Int, name: String, id: String, doWeAddPlayer: Boolean) {
         when (fragmentId) {
-            1 -> {
+            LIST_PLAYERS_FRAGMENT -> {
                 if (doWeAddPlayer) {
                     val currentFrag = ListPlayersFragment()
-                    Log.d("bug", "lpf_start")
                     if (!name.equals("") and !id.equals("")) {
                         val bundle = Bundle()
                         bundle.putString("name", name)
                         bundle.putString("id", id)
-                        bundle.putBoolean("add_player",doWeAddPlayer)
+                        bundle.putBoolean("add_player", doWeAddPlayer)
                         currentFrag.arguments = bundle
                     }
                     supportFragmentManager
@@ -45,27 +43,46 @@ public class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun setStatisticsFragment(fragmentId: Int, playerId: String, seasonId: String) {
+        when (fragmentId) {
+            STAT_FRAGMENT -> {
+                val currentFrag = StatFragment()
+                if (!playerId.equals("") and !seasonId.equals("")) {
+                    val bundle = Bundle()
+                    bundle.putString("name", playerId)
+                    bundle.putString("id", seasonId)
+                    currentFrag.arguments = bundle
+                }
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragment, currentFrag, "kek_tag")
+                    .commit()
+            }
+        }
+    }
+
+
     fun changeFragment(fragmentId: Int) {
         when (fragmentId) {
-            1 -> {
+            LIST_PLAYERS_FRAGMENT -> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment, ListPlayersFragment(), "kek_tag")
                     .commit()
             }
-            2 -> {
+            ADD_PLAYER_FRAGMENT -> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment, AddPlayerFragment(), "kek_tag")
                     .commit()
             }
-            3 -> {
+            STAT_FRAGMENT -> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment, StatFragment(), "kek_tag")
                     .commit()
             }
-            4 -> {
+            COMPARSION_FRAGMENT -> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment, ComparisonFragment(), "kek_tag")

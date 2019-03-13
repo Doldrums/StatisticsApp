@@ -21,16 +21,6 @@
               android:layout_gravity="center_horizontal"
               android:layout_height="wrap_content"/>
 
-    <Spinner
-            android:layout_width="270dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:popupBackground="@color/white"
-            android:spinnerMode="dialog"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner"/>
-
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="300dp"
             android:id="@+id/my_recycler_view"

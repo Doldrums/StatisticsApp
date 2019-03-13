@@ -4,7 +4,7 @@
     <string name="title_activity_main22">Main22Activity</string>
     <string name="title_solo">Solo</string>
     <string name="title_duo">Duo</string>
-    <string name="title_squard">Squard</string>
+    <string name="title_squard">Squad</string>
     <string name="begin_btn">find</string>
     <string name="begin_txt_title">Welcome</string>
     <string name="begin_txt_hint">player name</string>
@@ -12,7 +12,7 @@
         advance
     </string>
     <string name="item_txt_name">PLAYER123</string>
-    <string name="list_txt_title">Choose a player name and season</string>
+    <string name="list_txt_title">Choose a player name</string>
     <string name="stat_txt_title">PlayerName</string>
     <string name="stat_txt_rank">Ranking</string>
 
@@ -26,10 +26,47 @@
     <string name="solo_fpp">solo-fpp</string>
     <string name="squad">squad</string>
     <string name="squad_fpp">squad-fpp</string>
-
+    <!-- errors-->
     <string name="List_error">Oops! It seems you have not added a single player to view statistics. Please go and enter
         your nickname to get data.
     </string>
     <string name="Text_erroe">Your internet connection is not stable. Reconnect to network to continue.</string>
 
+    <!-- strings for statistics -->
+    <string name="assists">Assists</string>
+    <string name="bestRankPoint">Best rank point</string>
+    <string name="dBNOs">dBNOs</string>
+    <string name="dailyKills">Daily kills</string>
+    <string name="dailyWins">Daily wins</string>
+    <string name="boosts">Boosts</string>
+    <string name="damageDealt">Damage dealt</string>
+    <string name="days">Days</string>
+    <string name="headshotKills">Headshots</string>
+    <string name="heals">Heals</string>
+    <string name="killPoints">Kill points</string>
+    <string name="kills">Kills</string>
+    <string name="longestKill">Longest kill</string>
+    <string name="longestTimeSurvived">Longest time survived</string>
+    <string name="losses">Losses</string>
+    <string name="maxKillStreaks">Max kill streak</string>
+    <string name="mostSurvivalTime">Most survival time</string>
+    <string name="rankPoints">Rank points</string>
+    <string name="rankPointsTitle">rankPointsTitle</string>
+    <string name="revives">Revives</string>
+    <string name="rideDistance">Ride distance</string>
+    <string name="roadKills">Road kills</string>
+    <string name="roundMostKills">Most kills per round</string>
+    <string name="roundsPlayed">Rounds played</string>
+    <string name="suicides">Suicides</string>
+    <string name="swimDistance">Swim distance</string>
+    <string name="teamKills">Teamkills</string>
+    <string name="timeSurvived">Time survived</string>
+    <string name="top10s">Top10\'s</string>
+    <string name="vehicleDestroys">Vehicle destroys</string>
+    <string name="walkDistance">Walk distance</string>
+    <string name="weaponsAcquired">Weapons acquired</string>
+    <string name="weeklyKills">Weekly kills</string>
+    <string name="winPoints">Win points</string>
+    <string name="wins">Wins</string>
+    <string name="show_season_stats">Show statistics</string>
 </resources>
