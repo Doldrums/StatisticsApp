@@ -71,4 +71,5 @@
     <string name="winPoints">Win points</string>
     <string name="wins">Wins</string>
     <string name="show_season_stats">Show statistics</string>
+    <string name="default_value">-</string>
 </resources>
