@@ -68,23 +68,23 @@ class StatFragment : Fragment() {
             Log.d("ls", seasons.last())
         }
 
-        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_solo -> {
-
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.navigation_duo -> {
-
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.navigation_squad -> {
-
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
+//        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+//            when (item.itemId) {
+//                R.id.navigation_solo -> {
+//
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//                R.id.navigation_duo -> {
+//
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//                R.id.navigation_squad -> {
+//
+//                    return@OnNavigationItemSelectedListener true
+//                }
+//            }
+//            false
+//        }
 
 
 
