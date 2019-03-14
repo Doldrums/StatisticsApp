@@ -98,7 +98,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/rankPoints"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -121,7 +121,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:textSize="8pt"
                           android:id="@+id/bestRankPoint"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -144,7 +144,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:textSize="8pt"
                           android:id="@+id/roundsPlayed"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -167,7 +167,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/assists"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -190,7 +190,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/top10s"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -216,7 +216,7 @@
                       android:layout_height="wrap_content"/>
 
             <TextView android:layout_width="wrap_content"
-                      android:text="3070.02"
+                      android:text="@string/default_value"
                       android:id="@+id/mostSurvivalTime"
                       android:textSize="8pt"
                       style="@style/TextAppearance.AppCompat.Body1"
@@ -240,7 +240,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/swimDistance"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -278,7 +278,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/kills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -301,7 +301,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/longestKill"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -324,7 +324,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/maxKillStreaks"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -347,7 +347,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/headshotKills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -370,7 +370,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/dailyKills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -393,7 +393,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/roadKills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -416,7 +416,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/teamKills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -439,7 +439,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/weeklyKills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -462,7 +462,7 @@
                           android:layout_height="wrap_content"/>
 
                 <TextView android:layout_width="wrap_content"
-                          android:text="3070.02"
+                          android:text="@string/default_value"
                           android:id="@+id/roundMostKills"
                           android:textSize="8pt"
                           style="@style/TextAppearance.AppCompat.Body1"
@@ -500,7 +500,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/dBNOs"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -523,7 +523,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/dailyWins"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -546,7 +546,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/boosts"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -569,7 +569,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/damageDealt"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -592,7 +592,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/days"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -615,7 +615,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/heals"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -638,7 +638,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/losses"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -661,7 +661,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/revives"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -684,7 +684,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/rideDistance"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -707,7 +707,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/suicides"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -730,7 +730,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/vehicleDestroys"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
@@ -753,7 +753,7 @@
                               android:layout_height="wrap_content"/>
 
                     <TextView android:layout_width="wrap_content"
-                              android:text="3070.02"
+                              android:text="@string/default_value"
                               android:id="@+id/weaponsAcquired"
                               android:textSize="8pt"
                               style="@style/TextAppearance.AppCompat.Body1"
