@@ -9,7 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.MainActivity
+import com.example.final_project.MainActivity.Companion.ADD_PLAYER
 import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
+import com.example.final_project.MainActivity.Companion.ID
+import com.example.final_project.MainActivity.Companion.NAME
 import com.example.final_project.PlayersAdapter
 import com.example.final_project.R
 import com.example.final_project.RecyclerItemClickListener
@@ -43,9 +46,9 @@ public class ListPlayersFragment() : Fragment() {
 
         val bundle = this.arguments
         if (bundle != null) {
-            name = bundle.getString("name")!!
-            id = bundle.getString("id")!!
-            if (bundle.getBoolean("add_player")) {
+            name = bundle.getString(NAME)!!
+            id = bundle.getString(ID)!!
+            if (bundle.getBoolean(ADD_PLAYER)) {
                 players.add(SimplePlayer(name, id))
             }
         }

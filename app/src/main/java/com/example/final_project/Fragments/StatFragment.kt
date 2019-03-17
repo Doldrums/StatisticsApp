@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment
 import com.example.final_project.API.getSeasonStats
 import com.example.final_project.API.getSeasons
 import com.example.final_project.MainActivity
+import com.example.final_project.MainActivity.Companion.ID
 import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
+import com.example.final_project.MainActivity.Companion.NAME
 import com.example.final_project.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jjoe64.graphview.ValueDependentColor
@@ -25,8 +27,6 @@ class StatFragment : Fragment() {
     var seasons = mutableListOf<String>()
     var playerId: String = ""
     var nameOfPlayer: String = ""
-    var params = mutableListOf<String>()
-    var paramsNames = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +46,8 @@ class StatFragment : Fragment() {
 
         val bundle = this.arguments
         if (bundle != null) {
-            nameOfPlayer = bundle.getString("name")!!
-            playerId = bundle.getString("id")!!
+            nameOfPlayer = bundle.getString(NAME)!!
+            playerId = bundle.getString(ID)!!
             Log.d("pn", nameOfPlayer)
             Log.d("pid", playerId)
 

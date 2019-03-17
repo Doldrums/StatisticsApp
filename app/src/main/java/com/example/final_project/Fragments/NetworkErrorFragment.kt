@@ -18,16 +18,7 @@ class NetworkErrorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_network_error, container, false)
     }
 
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance() =
-            NetworkErrorFragment().apply {
-            }
-    }
 }

@@ -28,9 +28,9 @@ public class MainActivity : AppCompatActivity() {
                     val currentFrag = ListPlayersFragment()
                     if (!name.equals("") and !id.equals("")) {
                         val bundle = Bundle()
-                        bundle.putString("name", name)
-                        bundle.putString("id", id)
-                        bundle.putBoolean("add_player", doWeAddPlayer)
+                        bundle.putString(NAME, name)
+                        bundle.putString(ID, id)
+                        bundle.putBoolean(ADD_PLAYER, doWeAddPlayer)
                         currentFrag.arguments = bundle
                     }
                     supportFragmentManager
@@ -49,8 +49,8 @@ public class MainActivity : AppCompatActivity() {
                 val currentFrag = StatFragment()
                 if (!playerId.equals("") and !seasonId.equals("")) {
                     val bundle = Bundle()
-                    bundle.putString("name", playerId)
-                    bundle.putString("id", seasonId)
+                    bundle.putString(NAME, playerId)
+                    bundle.putString(ID, seasonId)
                     currentFrag.arguments = bundle
                 }
                 supportFragmentManager
@@ -97,6 +97,10 @@ public class MainActivity : AppCompatActivity() {
         val ADD_PLAYER_FRAGMENT = 2
         val STAT_FRAGMENT = 3
         val COMPARSION_FRAGMENT = 4
+
+        val NAME = "NAME"
+        val ID = "ID"
+        val ADD_PLAYER = "ADD_PLAYER"
     }
 }
 
