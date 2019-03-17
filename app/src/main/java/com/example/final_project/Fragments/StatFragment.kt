@@ -64,27 +64,26 @@ class StatFragment : Fragment() {
                 seasons.add(item.id)
 
             }
-            spinner.adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, seasons)
+            spinner.adapter = ArrayAdapter<String>(context!!, android.R.layout.simple_spinner_item, seasons)
             Log.d("ls", seasons.last())
         }
 
-//        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.navigation_solo -> {
-//
-//                    return@OnNavigationItemSelectedListener true
-//                }
-//                R.id.navigation_duo -> {
-//
-//                    return@OnNavigationItemSelectedListener true
-//                }
-//                R.id.navigation_squad -> {
-//
-//                    return@OnNavigationItemSelectedListener true
-//                }
-//            }
-//            false
-//        }
+        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_solo -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_duo -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_squad -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
+
+
 
 
 
@@ -153,10 +152,10 @@ class StatFragment : Fragment() {
                 )
                 graph1.addSeries(series1)
                 // styling
-                series1.valueDependentColor = ValueDependentColor<DataPoint> { data ->
+                series1.valueDependentColor = ValueDependentColor<DataPoint> { points ->
                     Color.rgb(
-                        data.x.toInt() * 255 / 4,
-                        Math.abs(data.y * 255 / 6).toInt(),
+                        points.x.toInt() * 255 / 4,
+                        Math.abs(points.y * 255 / 6).toInt(),
                         100
                     )
                 }
