@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+//    нужно обработать ситуацию с нажатым + просто так
     fun addPlayer(name: String, id: String, doWeAddPlayer: Boolean) {
         if (doWeAddPlayer) {
             val currentFrag = ListPlayersFragment()
