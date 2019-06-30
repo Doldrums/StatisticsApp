@@ -1,12 +1,17 @@
 package com.example.final_project
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.players.SimplePlayer
+
+
+
 
 class PlayersAdapter(private var players: List<SimplePlayer>) :
     RecyclerView.Adapter<PlayersAdapter.ViewHolder>() {
@@ -30,6 +35,35 @@ class PlayersAdapter(private var players: List<SimplePlayer>) :
 
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
         val playerName = itemView?.findViewById(R.id.name) as TextView
+    }
+}
+
+class SeasonsAdapter(context: Context, seasonsIds:MutableList<String>):ArrayAdapter<String>(context,0,seasonsIds){
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        return initView(position, convertView, parent)
+    }
+
+    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+        return initView(position, convertView, parent)
+    }
+
+    private fun initView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var convertView = convertView
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(
+                R.layout.spinner_seasons_item, parent, false
+            )
+        }
+
+        val seasonIdTV = convertView?.findViewById<TextView>(R.id.season_id)
+
+        val currentItem = getItem(position).toString()
+
+        if (currentItem != null) {
+            seasonIdTV?.text = currentItem
+        }
+
+        return convertView!!
     }
 }
 

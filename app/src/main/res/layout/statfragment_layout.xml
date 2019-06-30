@@ -44,11 +44,11 @@
                     android:layout_width="0dp"
                     android:layout_gravity="center_vertical"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:popupBackground="@color/color_background_main"
                     android:spinnerMode="dialog"
                     android:layout_height="wrap_content"
                     android:id="@+id/spinner" android:layout_weight="1" android:layout_margin="8dp"
-                    android:layout_marginTop="16dp"/>
+                    android:layout_marginTop="16dp" android:popupBackground="@color/colorPrimaryDark"
+                    android:background="@color/color_background_main"/>
 
 
         </LinearLayout>

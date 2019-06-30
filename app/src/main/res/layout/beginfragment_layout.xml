@@ -2,7 +2,7 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:background="@color/color_background_main" android:id="@+id/parent">
 
@@ -34,10 +34,14 @@
     <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_login"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/colorAccent"
+            app:boxStrokeColor="@color/colorAccent"
             android:layout_width="270dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+    app:boxStrokeWidth="3dp">
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_login"
                 android:hint="@string/begin_txt_hint"

@@ -6,15 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.example.final_project.API.getSeasonStats
 import com.example.final_project.API.getSeasons
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.ID
-import com.example.final_project.MainActivity.Companion.LIST_PLAYERS_FRAGMENT
+import com.example.final_project.MainActivity.Companion.LIST_OF_PLAYERS
 import com.example.final_project.MainActivity.Companion.NAME
 import com.example.final_project.R
+import com.example.final_project.SeasonsAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.series.BarGraphSeries
@@ -56,7 +56,7 @@ class StatFragment : Fragment() {
 
         btn_exitStat.setOnClickListener {
             val mainActivity = this@StatFragment.activity as MainActivity
-            mainActivity.changeFragment(LIST_PLAYERS_FRAGMENT)
+            mainActivity.setFragment(LIST_OF_PLAYERS)
         }
 
         getSeasons("pc-ru") { data ->
@@ -64,7 +64,9 @@ class StatFragment : Fragment() {
                 seasons.add(item.id)
 
             }
-            spinner.adapter = ArrayAdapter<String>(context!!, android.R.layout.simple_spinner_item, seasons)
+            val spinAdapter = SeasonsAdapter(context!!, seasons)
+            spinAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = spinAdapter
             Log.d("ls", seasons.last())
         }
 

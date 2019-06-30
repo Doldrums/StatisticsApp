@@ -1,34 +1,34 @@
 <resources>
 
-    <string name="app_name">Final_Project</string>
-    <string name="title_activity_main22">Main22Activity</string>
-    <string name="title_solo">Solo</string>
-    <string name="title_duo">Duo</string>
-    <string name="title_squard">Squad</string>
+    <string name="app_name" translatable="false">PUBG Stats</string>
+    <!--<string name="title_activity_main22">Main22Activity</string>-->
+    <string name="title_solo" translatable="false">Solo</string>
+    <string name="title_duo" translatable="false">Duo</string>
+    <string name="title_squard" translatable="false">Squad</string>
     <string name="begin_btn">find</string>
     <string name="begin_txt_title">Welcome</string>
     <string name="begin_txt_hint">player name</string>
     <string name="begin_txt_description">To continue, enter the player name to collect server statistics. Thank you in
         advance
     </string>
-    <string name="item_txt_name">PLAYER123</string>
+    <string name="item_txt_name" translatable="false">PLAYER123</string>
     <string name="list_txt_title">Choose a player name</string>
-    <string name="stat_txt_title">PlayerName</string>
+    <string name="stat_txt_title" translatable="false">PlayerName</string>
     <string name="stat_txt_rank">Ranking</string>
     <string name="stat_txt_kills">Kills</string>
     <string name="stat_txt_graphs">Graphs</string>
     <string name="stat_txt_other">Other</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <!-- constant strings to choose regime-->
-    <string name="duo">duo</string>
-    <string name="duo_fpp">duo-fpp</string>
-    <string name="solo">solo</string>
-    <string name="solo_fpp">solo-fpp</string>
-    <string name="squad">squad</string>
-    <string name="squad_fpp">squad-fpp</string>
+    <string name="duo" translatable="false">duo</string>
+    <string name="duo_fpp" translatable="false">duo-fpp</string>
+    <string name="solo" translatable="false">solo</string>
+    <string name="solo_fpp" translatable="false">solo-fpp</string>
+    <string name="squad" translatable="false">squad</string>
+    <string name="squad_fpp" translatable="false">squad-fpp</string>
     <!-- errors-->
     <string name="List_error">Oops! It seems you have not added a single player to view statistics. Please go and enter
         your nickname to get data.
@@ -54,7 +54,7 @@
     <string name="maxKillStreaks">Max kill streak</string>
     <string name="mostSurvivalTime">Most survival time</string>
     <string name="rankPoints">Rank points</string>
-    <string name="rankPointsTitle">rankPointsTitle</string>
+    <string name="rankPointsTitle" translatable="false">rankPointsTitle</string>
     <string name="revives">Revives</string>
     <string name="rideDistance">Ride distance</string>
     <string name="roadKills">Road kills</string>
@@ -71,5 +71,5 @@
     <string name="winPoints">Win points</string>
     <string name="wins">Wins</string>
     <string name="show_season_stats">Show statistics</string>
-    <string name="default_value">-</string>
+    <string name="default_value" translatable="false">-</string>
 </resources>

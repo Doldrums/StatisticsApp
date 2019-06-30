@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.ADD_PLAYER
-import com.example.final_project.MainActivity.Companion.ADD_PLAYER_FRAGMENT
+import com.example.final_project.MainActivity.Companion.PLAYER_ADDER
 import com.example.final_project.MainActivity.Companion.ID
 import com.example.final_project.MainActivity.Companion.NAME
 import com.example.final_project.PlayersAdapter
@@ -69,7 +69,7 @@ public class ListPlayersFragment() : Fragment() {
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
                         val mainActivity = this@ListPlayersFragment.activity as MainActivity
-                        mainActivity.setStatisticsFragment(MainActivity.STAT_FRAGMENT, view.name.text.toString(),id)
+                        mainActivity.showPlayerStatistics(view.name.text.toString(),id)
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {
@@ -85,7 +85,7 @@ public class ListPlayersFragment() : Fragment() {
 
         fab_addPlayer.setOnClickListener {
             val mainActivity = this@ListPlayersFragment.activity as MainActivity
-            mainActivity.changeFragment(ADD_PLAYER_FRAGMENT)
+            mainActivity.setFragment(PLAYER_ADDER)
         }
 
 
