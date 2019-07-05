@@ -48,4 +48,6 @@
     <string name="stat_txt_rank">Рейтинг</string>
     <string name="begin_txt_description">Чтобы продолжить, введите имя игрока для сбора статистики сервера. Спасибо.
     </string>
+    <string name="ok">ОК</string>
+    <string name="error">Ошибка!</string>
 </resources>

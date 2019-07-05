@@ -72,4 +72,6 @@
     <string name="wins">Wins</string>
     <string name="show_season_stats">Show statistics</string>
     <string name="default_value" translatable="false">-</string>
+    <string name="error">Error!</string>
+    <string name="ok">OK</string>
 </resources>
