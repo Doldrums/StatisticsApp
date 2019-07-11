@@ -16,7 +16,7 @@ import com.example.final_project.players.SimplePlayer
 class PlayersAdapter(private var players: List<SimplePlayer>) :
     RecyclerView.Adapter<PlayersAdapter.ViewHolder>() {
 
-    public fun setData(items: List<SimplePlayer>) {
+    fun setData(items: List<SimplePlayer>) {
         this.players = items
         notifyDataSetChanged()
     }

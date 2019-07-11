@@ -25,14 +25,8 @@ import kotlinx.android.synthetic.main.name_player_item_layout.view.*
 public class ListPlayersFragment() : Fragment() {
     var players = mutableListOf<SimplePlayer>()
 
-
     private var name = ""
     private var id = ""
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,10 +47,8 @@ public class ListPlayersFragment() : Fragment() {
             }
         }
 
-        if (players.size == 0) {
-            layout_error_list.visibility = View.VISIBLE
-        } else {
-            layout_error_list.visibility = View.INVISIBLE
+        if (players.size == 0){
+            players.add(SimplePlayer("Добавьте игрока и передалай это окно", "0"))
         }
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
