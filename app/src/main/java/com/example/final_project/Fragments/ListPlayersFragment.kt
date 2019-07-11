@@ -4,6 +4,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -22,7 +24,7 @@ import kotlinx.android.synthetic.main.name_player_item_layout.*
 import kotlinx.android.synthetic.main.name_player_item_layout.view.*
 
 
-public class ListPlayersFragment() : Fragment() {
+class ListPlayersFragment() : Fragment() {
     var players = mutableListOf<SimplePlayer>()
 
     private var name = ""
@@ -48,7 +50,9 @@ public class ListPlayersFragment() : Fragment() {
         }
 
         if (players.size == 0){
-            players.add(SimplePlayer("Добавьте игрока и передалай это окно", "0"))
+            layout_error_list.visibility = VISIBLE
+        }else{
+            layout_error_list.visibility = INVISIBLE
         }
 
         my_recycler_view.layoutManager = LinearLayoutManager(activity!!.applicationContext)
