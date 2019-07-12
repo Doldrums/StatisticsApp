@@ -9,7 +9,6 @@ import com.example.final_project.R
 
 class NetworkErrorFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -20,5 +19,4 @@ class NetworkErrorFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_network_error, container, false)
     }
-
 }

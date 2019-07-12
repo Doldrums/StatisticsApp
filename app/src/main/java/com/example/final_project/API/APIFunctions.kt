@@ -1,6 +1,7 @@
 package com.example.final_project.API
 
 import android.util.Log
+import android.widget.Toast
 import com.example.final_project.BuildConfig
 import com.example.final_project.players.*
 import okhttp3.OkHttpClient
@@ -34,21 +35,16 @@ public fun getPlayer(name: String,callback: (PlayerData) -> Unit) {
 
     call.enqueue(object : Callback<PlayerData> {
 
-
         override fun onFailure(call: Call<PlayerData>, t: Throwable) {
             Log.d("FAIL", "FAIL что-то не так!")
         }
 
-
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
             Log.d("OK", "Игрок получен!")
-            //здесь нужно сохранить имя игрока и его id
             val data = response.body()
             if (data != null) callback.invoke(data)
         }
-
     })
-
 }
 
 fun getSeasons(platform:String,callback: (SeasonsData) -> Unit) {

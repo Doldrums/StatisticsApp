@@ -86,12 +86,6 @@ class StatFragment : Fragment() {
         }
 
 
-
-
-
-
-
-
         //Вот тут на клик по кнопке получаем статистику по сезону, который выбран в спиннере
         //лучше выбирать 2 последних сезона, там есть данные
         button.setOnClickListener {
@@ -100,34 +94,36 @@ class StatFragment : Fragment() {
                 Log.d("stat", data.data.seasonAttributes.gameModeStats.duo.assists.toString())
                 //вот тут таким образом я заполняю textView
                 //все параметры можно посмотреть в классе SeasonStatistic (их ООООчень много)
-                assists.text = data.data.seasonAttributes.gameModeStats.duo.assists.toString()
-                bestRankPoint.text = data.data.seasonAttributes.gameModeStats.duo.bestRankPoint.toString()
-                rankPoints.text = data.data.seasonAttributes.gameModeStats.duo.rankPoints.toString()
-                roundsPlayed.text = data.data.seasonAttributes.gameModeStats.duo.roundsPlayed.toString()
-                kills.text = data.data.seasonAttributes.gameModeStats.duo.kills.toString()
-                longestKill.text = data.data.seasonAttributes.gameModeStats.duo.longestKill.toString()
-                dailyKills.text = data.data.seasonAttributes.gameModeStats.duo.dailyKills.toString()
-                headshotKills.text = data.data.seasonAttributes.gameModeStats.duo.headshotKills.toString()
-                maxKillStreaks.text = data.data.seasonAttributes.gameModeStats.duo.maxKillStreaks.toString()
-                roadKills.text = data.data.seasonAttributes.gameModeStats.duo.roadKills.toString()
-                roundMostKills.text = data.data.seasonAttributes.gameModeStats.duo.roundMostKills.toString()
-                teamKills.text = data.data.seasonAttributes.gameModeStats.duo.teamKills.toString()
-                weeklyKills.text = data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toString()
-                top10s.text = data.data.seasonAttributes.gameModeStats.duo.top10s.toString()
-                mostSurvivalTime.text = data.data.seasonAttributes.gameModeStats.duo.mostSurvivalTime.toString()
-                swimDistance.text = data.data.seasonAttributes.gameModeStats.duo.swimDistance.toString()
-                dBNOs.text = data.data.seasonAttributes.gameModeStats.duo.dBNOs.toString()
-                dailyWins.text = data.data.seasonAttributes.gameModeStats.duo.dailyWins.toString()
-                boosts.text = data.data.seasonAttributes.gameModeStats.duo.boosts.toString()
-                damageDealt.text = data.data.seasonAttributes.gameModeStats.duo.damageDealt.toString()
-                days.text = data.data.seasonAttributes.gameModeStats.duo.days.toString()
-                heals.text = data.data.seasonAttributes.gameModeStats.duo.heals.toString()
-                losses.text = data.data.seasonAttributes.gameModeStats.duo.losses.toString()
-                revives.text = data.data.seasonAttributes.gameModeStats.duo.revives.toString()
-                rideDistance.text = data.data.seasonAttributes.gameModeStats.duo.rideDistance.toString()
-                suicides.text = data.data.seasonAttributes.gameModeStats.duo.suicides.toString()
-                vehicleDestroys.text = data.data.seasonAttributes.gameModeStats.duo.vehicleDestroys.toString()
-                weaponsAcquired.text = data.data.seasonAttributes.gameModeStats.duo.weaponsAcquired.toString()
+//                assists.text = data.data.seasonAttributes.gameModeStats.duo.assists.toString()
+//                bestRankPoint.text = data.data.seasonAttributes.gameModeStats.duo.bestRankPoint.toString()
+//                rankPoints.text = data.data.seasonAttributes.gameModeStats.duo.rankPoints.toString()
+//                roundsPlayed.text = data.data.seasonAttributes.gameModeStats.duo.roundsPlayed.toString()
+//                kills.text = data.data.seasonAttributes.gameModeStats.duo.kills.toString()
+//                longestKill.text = data.data.seasonAttributes.gameModeStats.duo.longestKill.toString()
+//                dailyKills.text = data.data.seasonAttributes.gameModeStats.duo.dailyKills.toString()
+//                headshotKills.text = data.data.seasonAttributes.gameModeStats.duo.headshotKills.toString()
+//                maxKillStreaks.text = data.data.seasonAttributes.gameModeStats.duo.maxKillStreaks.toString()
+//                roadKills.text = data.data.seasonAttributes.gameModeStats.duo.roadKills.toString()
+//                roundMostKills.text = data.data.seasonAttributes.gameModeStats.duo.roundMostKills.toString()
+//                teamKills.text = data.data.seasonAttributes.gameModeStats.duo.teamKills.toString()
+//                weeklyKills.text = data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toString()
+//                top10s.text = data.data.seasonAttributes.gameModeStats.duo.top10s.toString()
+//                mostSurvivalTime.text = data.data.seasonAttributes.gameModeStats.duo.mostSurvivalTime.toString()
+//                swimDistance.text = data.data.seasonAttributes.gameModeStats.duo.swimDistance.toString()
+//                dBNOs.text = data.data.seasonAttributes.gameModeStats.duo.dBNOs.toString()
+//                dailyWins.text = data.data.seasonAttributes.gameModeStats.duo.dailyWins.toString()
+//                boosts.text = data.data.seasonAttributes.gameModeStats.duo.boosts.toString()
+//                damageDealt.text = data.data.seasonAttributes.gameModeStats.duo.damageDealt.toString()
+//                days.text = data.data.seasonAttributes.gameModeStats.duo.days.toString()
+//                heals.text = data.data.seasonAttributes.gameModeStats.duo.heals.toString()
+//                losses.text = data.data.seasonAttributes.gameModeStats.duo.losses.toString()
+//                revives.text = data.data.seasonAttributes.gameModeStats.duo.revives.toString()
+//                rideDistance.text = data.data.seasonAttributes.gameModeStats.duo.rideDistance.toString()
+//                suicides.text = data.data.seasonAttributes.gameModeStats.duo.suicides.toString()
+//                vehicleDestroys.text = data.data.seasonAttributes.gameModeStats.duo.vehicleDestroys.toString()
+//                weaponsAcquired.text = data.data.seasonAttributes.gameModeStats.duo.weaponsAcquired.toString()
+
+                TODO(сделать адаптер для RV и заполнить его данными)
 
                 val series = LineGraphSeries<DataPoint>(
                     arrayOf<DataPoint>(
@@ -138,6 +134,7 @@ class StatFragment : Fragment() {
                         DataPoint(4.0, data.data.seasonAttributes.gameModeStats.duo.longestKill)
                     )
                 )
+
                 series.isDrawDataPoints = true
                 series.dataPointsRadius = 10F
                 graph.viewport.isScalable = true
@@ -152,6 +149,7 @@ class StatFragment : Fragment() {
                         DataPoint(4.0, data.data.seasonAttributes.gameModeStats.duo.top10s.toDouble())
                     )
                 )
+
                 graph1.addSeries(series1)
                 // styling
                 series1.valueDependentColor = ValueDependentColor<DataPoint> { points ->
