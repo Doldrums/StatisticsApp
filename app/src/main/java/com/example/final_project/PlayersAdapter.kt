@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.players.SimplePlayer
 
 
-
-
 class PlayersAdapter(private var players: List<SimplePlayer>) :
     RecyclerView.Adapter<PlayersAdapter.ViewHolder>() {
 

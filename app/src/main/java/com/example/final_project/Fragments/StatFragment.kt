@@ -1,25 +1,19 @@
 package com.example.final_project.Fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.final_project.*
 import com.example.final_project.API.getSeasonStats
 import com.example.final_project.API.getSeasons
-import com.example.final_project.MainActivity
 import com.example.final_project.MainActivity.Companion.ID
 import com.example.final_project.MainActivity.Companion.LIST_OF_PLAYERS
 import com.example.final_project.MainActivity.Companion.NAME
-import com.example.final_project.R
-import com.example.final_project.SeasonsAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.jjoe64.graphview.ValueDependentColor
-import com.jjoe64.graphview.series.BarGraphSeries
-import com.jjoe64.graphview.series.DataPoint
-import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.statfragment_layout.*
 
 
@@ -94,75 +88,89 @@ class StatFragment : Fragment() {
                 Log.d("stat", data.data.seasonAttributes.gameModeStats.duo.assists.toString())
                 //вот тут таким образом я заполняю textView
                 //все параметры можно посмотреть в классе SeasonStatistic (их ООООчень много)
-//                assists.text = data.data.seasonAttributes.gameModeStats.duo.assists.toString()
-//                bestRankPoint.text = data.data.seasonAttributes.gameModeStats.duo.bestRankPoint.toString()
-//                rankPoints.text = data.data.seasonAttributes.gameModeStats.duo.rankPoints.toString()
-//                roundsPlayed.text = data.data.seasonAttributes.gameModeStats.duo.roundsPlayed.toString()
-//                kills.text = data.data.seasonAttributes.gameModeStats.duo.kills.toString()
-//                longestKill.text = data.data.seasonAttributes.gameModeStats.duo.longestKill.toString()
-//                dailyKills.text = data.data.seasonAttributes.gameModeStats.duo.dailyKills.toString()
-//                headshotKills.text = data.data.seasonAttributes.gameModeStats.duo.headshotKills.toString()
-//                maxKillStreaks.text = data.data.seasonAttributes.gameModeStats.duo.maxKillStreaks.toString()
-//                roadKills.text = data.data.seasonAttributes.gameModeStats.duo.roadKills.toString()
-//                roundMostKills.text = data.data.seasonAttributes.gameModeStats.duo.roundMostKills.toString()
-//                teamKills.text = data.data.seasonAttributes.gameModeStats.duo.teamKills.toString()
-//                weeklyKills.text = data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toString()
-//                top10s.text = data.data.seasonAttributes.gameModeStats.duo.top10s.toString()
-//                mostSurvivalTime.text = data.data.seasonAttributes.gameModeStats.duo.mostSurvivalTime.toString()
-//                swimDistance.text = data.data.seasonAttributes.gameModeStats.duo.swimDistance.toString()
-//                dBNOs.text = data.data.seasonAttributes.gameModeStats.duo.dBNOs.toString()
-//                dailyWins.text = data.data.seasonAttributes.gameModeStats.duo.dailyWins.toString()
-//                boosts.text = data.data.seasonAttributes.gameModeStats.duo.boosts.toString()
-//                damageDealt.text = data.data.seasonAttributes.gameModeStats.duo.damageDealt.toString()
-//                days.text = data.data.seasonAttributes.gameModeStats.duo.days.toString()
-//                heals.text = data.data.seasonAttributes.gameModeStats.duo.heals.toString()
-//                losses.text = data.data.seasonAttributes.gameModeStats.duo.losses.toString()
-//                revives.text = data.data.seasonAttributes.gameModeStats.duo.revives.toString()
-//                rideDistance.text = data.data.seasonAttributes.gameModeStats.duo.rideDistance.toString()
-//                suicides.text = data.data.seasonAttributes.gameModeStats.duo.suicides.toString()
-//                vehicleDestroys.text = data.data.seasonAttributes.gameModeStats.duo.vehicleDestroys.toString()
-//                weaponsAcquired.text = data.data.seasonAttributes.gameModeStats.duo.weaponsAcquired.toString()
 
-                TODO(сделать адаптер для RV и заполнить его данными)
+                val statisticsData = listOf<StatList>(
+                    StatDescr(getString(R.string.stat_txt_rank)),
+                    StatData(getString(R.string.rankPoints),data.data.seasonAttributes.gameModeStats.duo.rankPoints.toString()),
+                    StatData(getString(R.string.bestRankPoint),data.data.seasonAttributes.gameModeStats.duo.bestRankPoint.toString()),
+                    StatData(getString(R.string.roundsPlayed),data.data.seasonAttributes.gameModeStats.duo.roundsPlayed.toString()),
+                    StatData(getString(R.string.assists),data.data.seasonAttributes.gameModeStats.duo.assists.toString()),
+                    StatData(getString(R.string.top10s),data.data.seasonAttributes.gameModeStats.duo.top10s.toString()),
+                    StatData(getString(R.string.mostSurvivalTime),data.data.seasonAttributes.gameModeStats.duo.mostSurvivalTime.toString()),
+                    StatData(getString(R.string.swimDistance),data.data.seasonAttributes.gameModeStats.duo.swimDistance.toString()),
 
-                val series = LineGraphSeries<DataPoint>(
-                    arrayOf<DataPoint>(
-                        DataPoint(0.0, data.data.seasonAttributes.gameModeStats.duo.dailyKills.toDouble()),
-                        DataPoint(1.0, data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toDouble()),
-                        DataPoint(2.0, data.data.seasonAttributes.gameModeStats.duo.teamKills.toDouble()),
-                        DataPoint(3.0, data.data.seasonAttributes.gameModeStats.duo.kills.toDouble()),
-                        DataPoint(4.0, data.data.seasonAttributes.gameModeStats.duo.longestKill)
-                    )
+                    StatDescr(getString(R.string.stat_txt_kills)),
+                    StatData(getString(R.string.kills),data.data.seasonAttributes.gameModeStats.duo.kills.toString()),
+                    StatData(getString(R.string.longestKill),data.data.seasonAttributes.gameModeStats.duo.longestKill.toString()),
+                    StatData(getString(R.string.roundMostKills),data.data.seasonAttributes.gameModeStats.duo.roundMostKills.toString()),
+                    StatData(getString(R.string.headshotKills),data.data.seasonAttributes.gameModeStats.duo.headshotKills.toString()),
+                    StatData(getString(R.string.dailyKills),data.data.seasonAttributes.gameModeStats.duo.dailyKills.toString()),
+                    StatData(getString(R.string.weeklyKills),data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toString()),
+                    StatData(getString(R.string.weeklyKills),data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toString()),
+                    StatData(getString(R.string.maxKillStreaks),data.data.seasonAttributes.gameModeStats.duo.maxKillStreaks.toString()),
+                    StatData(getString(R.string.roadKills),data.data.seasonAttributes.gameModeStats.duo.roadKills.toString()),
+                    StatData(getString(R.string.teamKills),data.data.seasonAttributes.gameModeStats.duo.teamKills.toString()),
+
+                    StatDescr(getString(R.string.stat_txt_other)),
+                    StatData(getString(R.string.dBNOs),data.data.seasonAttributes.gameModeStats.duo.dBNOs.toString()),
+                    StatData(getString(R.string.dailyWins),data.data.seasonAttributes.gameModeStats.duo.dailyWins.toString()),
+                    StatData(getString(R.string.boosts),data.data.seasonAttributes.gameModeStats.duo.boosts.toString()),
+                    StatData(getString(R.string.damageDealt),data.data.seasonAttributes.gameModeStats.duo.damageDealt.toString()),
+                    StatData(getString(R.string.days),data.data.seasonAttributes.gameModeStats.duo.days.toString()),
+                    StatData(getString(R.string.heals),data.data.seasonAttributes.gameModeStats.duo.heals.toString()),
+                    StatData(getString(R.string.losses),data.data.seasonAttributes.gameModeStats.duo.losses.toString()),
+                    StatData(getString(R.string.revives),data.data.seasonAttributes.gameModeStats.duo.revives.toString()),
+                    StatData(getString(R.string.rideDistance),data.data.seasonAttributes.gameModeStats.duo.rideDistance.toString()),
+                    StatData(getString(R.string.suicides),data.data.seasonAttributes.gameModeStats.duo.suicides.toString()),
+                    StatData(getString(R.string.vehicleDestroys),data.data.seasonAttributes.gameModeStats.duo.vehicleDestroys.toString()),
+                    StatData(getString(R.string.weaponsAcquired),data.data.seasonAttributes.gameModeStats.duo.weaponsAcquired.toString())
                 )
 
-                series.isDrawDataPoints = true
-                series.dataPointsRadius = 10F
-                graph.viewport.isScalable = true
-                graph.addSeries(series)
+                val adapter = StatisticsAdapter()
+                stat_data_rv.layoutManager = LinearLayoutManager(activity!!.applicationContext)
+                stat_data_rv.adapter = adapter
 
-                val series1 = BarGraphSeries(
-                    arrayOf(
-                        DataPoint(0.0, data.data.seasonAttributes.gameModeStats.duo.rankPoints),
-                        DataPoint(1.0, data.data.seasonAttributes.gameModeStats.duo.bestRankPoint),
-                        DataPoint(2.0, data.data.seasonAttributes.gameModeStats.duo.roundsPlayed.toDouble()),
-                        DataPoint(3.0, data.data.seasonAttributes.gameModeStats.duo.assists.toDouble()),
-                        DataPoint(4.0, data.data.seasonAttributes.gameModeStats.duo.top10s.toDouble())
-                    )
-                )
+                adapter.setData(statisticsData)
 
-                graph1.addSeries(series1)
-                // styling
-                series1.valueDependentColor = ValueDependentColor<DataPoint> { points ->
-                    Color.rgb(
-                        points.x.toInt() * 255 / 4,
-                        Math.abs(points.y * 255 / 6).toInt(),
-                        100
-                    )
-                }
-                series1.spacing = 50
-                series1.isDrawValuesOnTop = true
-                series1.valuesOnTopColor = Color.WHITE
-                graph1.viewport.isScalable = true
+//                val series = LineGraphSeries<DataPoint>(
+//                    arrayOf<DataPoint>(
+//                        DataPoint(0.0, data.data.seasonAttributes.gameModeStats.duo.dailyKills.toDouble()),
+//                        DataPoint(1.0, data.data.seasonAttributes.gameModeStats.duo.weeklyKills.toDouble()),
+//                        DataPoint(2.0, data.data.seasonAttributes.gameModeStats.duo.teamKills.toDouble()),
+//                        DataPoint(3.0, data.data.seasonAttributes.gameModeStats.duo.kills.toDouble()),
+//                        DataPoint(4.0, data.data.seasonAttributes.gameModeStats.duo.longestKill)
+//                    )
+//                )
+//
+//                series.isDrawDataPoints = true
+//                series.dataPointsRadius = 10F
+//                graph.viewport.isScalable = true
+//                graph.addSeries(series)
+//
+//                val series1 = BarGraphSeries(
+//                    arrayOf(
+//                        DataPoint(0.0, data.data.seasonAttributes.gameModeStats.duo.rankPoints),
+//                        DataPoint(1.0, data.data.seasonAttributes.gameModeStats.duo.bestRankPoint),
+//                        DataPoint(2.0, data.data.seasonAttributes.gameModeStats.duo.roundsPlayed.toDouble()),
+//                        DataPoint(3.0, data.data.seasonAttributes.gameModeStats.duo.assists.toDouble()),
+//                        DataPoint(4.0, data.data.seasonAttributes.gameModeStats.duo.top10s.toDouble())
+//                    )
+//                )
+//
+//                graph1.addSeries(series1)
+//                // styling
+//                series1.valueDependentColor = ValueDependentColor<DataPoint> { points ->
+//                    Color.rgb(
+//                        points.x.toInt() * 255 / 4,
+//                        Math.abs(points.y * 255 / 6).toInt(),
+//                        100
+//                    )
+//                }
+//                series1.spacing = 50
+//                series1.isDrawValuesOnTop = true
+//                series1.valuesOnTopColor = Color.WHITE
+//                graph1.viewport.isScalable = true
+
 
             }
         }
