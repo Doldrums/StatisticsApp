@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.statfragment_layout.*
 
 
 class StatFragment : Fragment() {
+    var seasonsTmp = mutableListOf<String>()
     var seasons = mutableListOf<String>()
     var playerId: String = ""
     var nameOfPlayer: String = ""
@@ -51,13 +52,15 @@ class StatFragment : Fragment() {
 
         getSeasons("pc-ru") { data ->
             for (item in data.seasons) {
-                seasons.add(item.id)
-
+                seasonsTmp.add(item.id)
             }
+            seasons.add(seasonsTmp[seasonsTmp.size - 2])
+            seasons.add(seasonsTmp[seasonsTmp.size - 1])
+
+
             val spinAdapter = SeasonsAdapter(context!!, seasons)
             spinAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
             spinner.adapter = spinAdapter
-            Log.d("ls", seasons.last())
         }
 
         val adapter = StatisticsAdapter()

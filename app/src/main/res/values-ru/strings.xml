@@ -51,4 +51,6 @@
     <string name="ok">ОК</string>
     <string name="error">Ошибка!</string>
     <string name="enter_player_name">Пустое имя игрока!</string>
+    <string name="current_season">ТЕКУЩИЙ СЕЗОН</string>
+    <string name="prev_season">ПРЕДЫДУЩИЙ СЕЗОН</string>
 </resources>

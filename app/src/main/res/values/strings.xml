@@ -75,4 +75,7 @@
     <string name="error">Error!</string>
     <string name="ok">OK</string>
     <string name="enter_player_name">Enter player name!</string>
+
+    <string name="current_season">CURRENT SEASON</string>
+    <string name="prev_season">PREVIOUS SEASON</string>
 </resources>

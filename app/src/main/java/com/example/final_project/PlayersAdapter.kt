@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.players.SimplePlayer
@@ -36,7 +35,12 @@ class PlayersAdapter(private var players: List<SimplePlayer>) :
     }
 }
 
-class SeasonsAdapter(context: Context, seasonsIds:MutableList<String>):ArrayAdapter<String>(context,0,seasonsIds){
+class SeasonsAdapter(context: Context, seasonsIds: MutableList<String>) : ArrayAdapter<String>(context, 0, seasonsIds) {
+
+    fun setData(items: MutableList<String>) {
+        notifyDataSetChanged()
+    }
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         return initView(position, convertView, parent)
     }

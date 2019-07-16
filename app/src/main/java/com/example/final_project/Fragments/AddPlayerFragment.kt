@@ -1,17 +1,23 @@
 package com.example.final_project.Fragments
 
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.final_project.API.getPlayer
 import com.example.final_project.MainActivity
 import com.example.final_project.R
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.add_player_frag_layout.*
+
+
+
 
 
 class AddPlayerFragment : Fragment() {
@@ -34,7 +40,11 @@ class AddPlayerFragment : Fragment() {
                     mainActivity.addPlayer(data.getName(), data.getId(), true)
                 }
             }else{
-                Snackbar.make(parent,R.string.enter_player_name,Snackbar.LENGTH_SHORT).show()
+                val snack = Snackbar.make(parent,R.string.enter_player_name,Snackbar.LENGTH_SHORT)
+                val sv = snack.view
+                val tv = sv.findViewById<TextView>(R.id.snackbar_text)
+                tv.setTextColor(ContextCompat.getColor(context!!, R.color.colorAccent))
+                snack.show()
             }
         }
     }
