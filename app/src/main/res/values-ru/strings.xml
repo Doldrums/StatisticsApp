@@ -50,4 +50,5 @@
     </string>
     <string name="ok">ОК</string>
     <string name="error">Ошибка!</string>
+    <string name="enter_player_name">Пустое имя игрока!</string>
 </resources>

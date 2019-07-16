@@ -22,10 +22,6 @@ class StatFragment : Fragment() {
     var playerId: String = ""
     var nameOfPlayer: String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,6 +63,130 @@ class StatFragment : Fragment() {
         val adapter = StatisticsAdapter()
         stat_data_rv.layoutManager = LinearLayoutManager(activity!!.applicationContext)
         stat_data_rv.adapter = adapter
+        val defaultData = listOf<StatList>(
+            StatDescr(getString(R.string.stat_txt_rank)),
+            StatData(
+                getString(R.string.rankPoints),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.bestRankPoint),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.roundsPlayed),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.assists),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.top10s),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.mostSurvivalTime),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.swimDistance),
+                R.string.default_value.toString()
+            ),
+
+            StatDescr(getString(R.string.stat_txt_kills)),
+            StatData(
+                getString(R.string.kills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.longestKill),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.roundMostKills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.headshotKills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.dailyKills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.weeklyKills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.weeklyKills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.maxKillStreaks),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.roadKills),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.teamKills),
+                R.string.default_value.toString()
+            ),
+
+            StatDescr(getString(R.string.stat_txt_other)),
+            StatData(
+                getString(R.string.dBNOs),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.dailyWins),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.boosts),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.damageDealt),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.days),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.heals),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.losses),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.revives),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.rideDistance),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.suicides),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.vehicleDestroys),
+                R.string.default_value.toString()
+            ),
+            StatData(
+                getString(R.string.weaponsAcquired),
+                R.string.default_value.toString()
+            )
+        )
+        adapter.setData(defaultData)
 
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {

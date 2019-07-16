@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.final_project.API.getPlayer
 import com.example.final_project.MainActivity
 import com.example.final_project.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.add_player_frag_layout.*
 
 
@@ -25,11 +26,15 @@ class AddPlayerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("FRAG", "Fragment BeginFragment started")
+        Log.d("FRAG", "Fragment AddPlayer started")
         btn_find.setOnClickListener {
-            getPlayer(input_login.text.toString()) { data ->
-                val mainActivity = this.activity as MainActivity
-                mainActivity.addPlayer(data.getName(), data.getId(),true)
+            if (!input_login.text!!.isEmpty()) {
+                getPlayer(input_login.text.toString()) { data ->
+                    val mainActivity = this.activity as MainActivity
+                    mainActivity.addPlayer(data.getName(), data.getId(), true)
+                }
+            }else{
+                Snackbar.make(parent,R.string.enter_player_name,Snackbar.LENGTH_SHORT).show()
             }
         }
     }

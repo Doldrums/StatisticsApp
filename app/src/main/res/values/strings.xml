@@ -74,4 +74,5 @@
     <string name="default_value" translatable="false">-</string>
     <string name="error">Error!</string>
     <string name="ok">OK</string>
+    <string name="enter_player_name">Enter player name!</string>
 </resources>
