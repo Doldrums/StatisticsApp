@@ -43,6 +43,8 @@ public fun getPlayer(name: String, callback: (PlayerData) -> Unit) {
 
         override fun onResponse(call: Call<PlayerData>, response: Response<PlayerData>) {
             Log.d("OK", "Игрок получен!")
+            //TODO( вот тут мы можем получить: {"errors":[{"title":"Not Found","detail":"No Players Found Matching Criteria"}]})
+            // Это надо обработать как "ИГРОК НЕ НАЙДЕН"
             val data = response.body()
             if (data != null) callback.invoke(data)
         }

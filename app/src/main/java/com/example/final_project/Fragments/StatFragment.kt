@@ -67,129 +67,130 @@ class StatFragment : Fragment() {
             StatDescr(getString(R.string.stat_txt_rank)),
             StatData(
                 getString(R.string.rankPoints),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.bestRankPoint),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.roundsPlayed),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.assists),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.top10s),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.mostSurvivalTime),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.swimDistance),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
 
             StatDescr(getString(R.string.stat_txt_kills)),
             StatData(
                 getString(R.string.kills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.longestKill),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.roundMostKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.headshotKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.dailyKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.weeklyKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.weeklyKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.maxKillStreaks),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.roadKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.teamKills),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
 
             StatDescr(getString(R.string.stat_txt_other)),
             StatData(
                 getString(R.string.dBNOs),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.dailyWins),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.boosts),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.damageDealt),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.days),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.heals),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.losses),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.revives),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.rideDistance),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.suicides),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.vehicleDestroys),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             ),
             StatData(
                 getString(R.string.weaponsAcquired),
-                R.string.default_value.toString()
+                getString(R.string.default_value)
             )
         )
         adapter.setData(defaultData)
 
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                //TODO(идея: получить всю data (скорее всего она и приходит вся) и закешировать с записью времени, потом убрать загрузку и отобразить solo как и выделено в начале)
                 R.id.navigation_solo -> {
                     Log.d("show_solo", spinner.selectedItem.toString())
                     getSeasonStats(playerId, spinner.selectedItem.toString()) { data ->
