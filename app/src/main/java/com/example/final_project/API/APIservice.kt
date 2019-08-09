@@ -1,8 +1,8 @@
 package com.example.final_project.API
 
-import com.example.final_project.players.PlayerData
-import com.example.final_project.players.SeasonStatsData
-import com.example.final_project.players.SeasonsData
+import com.example.final_project.database.players.PlayerData
+import com.example.final_project.database.players.SeasonStatsData
+import com.example.final_project.database.players.SeasonsData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

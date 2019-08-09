@@ -1,4 +1,4 @@
-package com.example.final_project.players
+package com.example.final_project.database.players
 
 
 import com.google.gson.annotations.SerializedName

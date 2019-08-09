@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.final_project.players.SimplePlayer
+import com.example.final_project.database.players.SimplePlayer
 
 
 class PlayersAdapter(private var players: List<SimplePlayer>) :
@@ -31,7 +31,7 @@ class PlayersAdapter(private var players: List<SimplePlayer>) :
     override fun getItemCount() = players.size
 
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        val playerName = itemView?.findViewById(R.id.name) as TextView
+        val playerName:TextView? = itemView?.findViewById(R.id.name)
     }
 }
 

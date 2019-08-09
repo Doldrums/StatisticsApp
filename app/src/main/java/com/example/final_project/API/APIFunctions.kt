@@ -2,9 +2,9 @@ package com.example.final_project.API
 
 import android.util.Log
 import com.example.final_project.BuildConfig
-import com.example.final_project.players.PlayerData
-import com.example.final_project.players.SeasonStatsData
-import com.example.final_project.players.SeasonsData
+import com.example.final_project.database.players.PlayerData
+import com.example.final_project.database.players.SeasonStatsData
+import com.example.final_project.database.players.SeasonsData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
