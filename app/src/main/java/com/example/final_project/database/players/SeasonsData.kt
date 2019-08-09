@@ -1,4 +1,4 @@
-package com.example.final_project.players
+package com.example.final_project.database.players
 
 import com.google.gson.annotations.SerializedName
 
@@ -10,8 +10,8 @@ data class SeasonsData(
 data class Season(
     val id:String,
     @SerializedName("attributes")
-    val attributes: SeasonAttributes
-
+    val attributes: SeasonAttributes,
+    val nameOfSeason:String
 ) {
     override fun toString(): String {
         return id
@@ -23,5 +23,11 @@ data class SeasonAttributes(
     val isCurrentSeason: String,
     val isOffseason: String
 )
+
+data class SeasonUI(
+    val seasonId:String,
+    val seasonName:String
+)
+
 
 

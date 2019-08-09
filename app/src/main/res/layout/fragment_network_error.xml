@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-              android:background="@color/color_background_main"
-                android:orientation="vertical"
-             tools:context=".Fragments.NetworkErrorFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background_main"
+        android:orientation="vertical"
+        tools:context=".Fragments.NetworkErrorFragment">
 
-    <ImageView android:layout_width="100dp"
-               android:layout_marginTop="100dp"
-               android:layout_gravity="center_horizontal"
-               android:src="@drawable/ic_network"
-               android:layout_height="100dp"/>
     <TextView android:layout_width="wrap_content"
               style="@style/TextAppearance.AppCompat.Title"
               android:textColor="@color/white"
-              android:text="Error!"
-              android:layout_marginTop="20dp"
-              android:layout_gravity="center_horizontal"
-              android:layout_height="wrap_content"/>
+              android:text="@string/error"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toStartOf="parent"
+              android:layout_marginStart="8dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:layout_marginEnd="8dp"
+              android:id="@+id/error_text_tv"
+              android:layout_marginTop="200dp"
+              app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView android:layout_width="150dp"
+               android:src="@drawable/ic_network"
+               android:layout_height="150dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               android:layout_marginEnd="8dp"
+               android:id="@+id/imageView2"
+               android:layout_marginTop="8dp"
+               app:layout_constraintTop_toBottomOf="@+id/error_text_tv"
+               app:layout_constraintStart_toStartOf="parent"
+               android:layout_marginStart="32dp"/>
+
     <TextView android:layout_width="250dp"
+              android:layout_height="wrap_content"
               style="@style/TextAppearance.AppCompat.Body1"
               android:textColor="@color/white"
               android:textAlignment="center"
               android:text="@string/Text_erroe"
-              android:layout_marginTop="10dp"
-              android:layout_gravity="center_horizontal"
-              android:layout_height="wrap_content"/>
-    <Button android:layout_width="wrap_content"
-            android:text="Ok"
-            android:layout_marginTop="150dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"/>
+              android:id="@+id/textView4" android:layout_marginTop="8dp"
+              app:layout_constraintTop_toBottomOf="@+id/imageView2" android:layout_marginStart="8dp"
+              app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+              app:layout_constraintEnd_toEndOf="parent"/>
 
-</LinearLayout>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ok"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" style="@style/Widget.AppCompat.Button.Colored"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

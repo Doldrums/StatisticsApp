@@ -1,7 +1,5 @@
-package com.example.final_project.players
+package com.example.final_project.database.players
 
-import android.provider.Settings.Global.getString
-import com.example.final_project.R
 import com.google.gson.annotations.SerializedName
 
 data class SeasonStatsData(

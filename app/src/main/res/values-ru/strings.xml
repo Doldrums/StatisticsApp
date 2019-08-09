@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="begin_btn">Найти</string>
+    <string name="begin_txt_hint">имя игрока</string>
+    <string name="begin_txt_title">Добро пожаловать</string>
+    <string name="list_txt_title">Выберите имя игрока</string>
+    <string name="stat_txt_kills">Статистика по убийствам</string>
+    <string name="List_error">Упс! Кажется, вы не добавили ни одного игрока для просмотра статистики. Пожалуйста,
+        зайдите и введите Ваш ник для получения данных.
+    </string>
+    <string name="Text_erroe">Ваше интернет-соединение не стабильно. Переподключитесь к сети, чтобы продолжить.</string>
+    <string name="assists">Помощь</string>
+    <string name="dailyKills">Убийств в день</string>
+    <string name="dailyWins">Побед в день</string>
+    <string name="boosts">Бусты</string>
+    <string name="damageDealt">Нанесеный урон</string>
+    <string name="days">Дней</string>
+    <string name="headshotKills">Убийтва в голову</string>
+    <string name="heals">Медицина</string>
+    <string name="killPoints">Очки убийств</string>
+    <string name="kills">Убийства</string>
+    <string name="longestKill">Наибольшая дальность убийства</string>
+    <string name="longestTimeSurvived">Максимальное всего выжил</string>
+    <string name="losses">Поражений</string>
+    <string name="maxKillStreaks">Максимальное число убийств за раунд</string>
+    <string name="mostSurvivalTime">Среднее время жизни</string>
+    <string name="rankPoints">Очки ранга</string>
+    <string name="revives">Поднятий</string>
+    <string name="rideDistance">Проехал</string>
+    <string name="roadKills">Задавлено</string>
+    <string name="roundMostKills">В среднем убил за раунд</string>
+    <string name="roundsPlayed">Количество игр</string>
+    <string name="suicides">Суициды</string>
+    <string name="swimDistance">Проплыл</string>
+    <string name="teamKills">Убийства союзников</string>
+    <string name="timeSurvived">Время ыживания</string>
+    <string name="top10s">Топ 10</string>
+    <string name="vehicleDestroys">Уничтожено машин</string>
+    <string name="weaponsAcquired">Поднято оружия</string>
+    <string name="weeklyKills">Убийств в неделю</string>
+    <string name="winPoints">Очки победы</string>
+    <string name="wins">Победы</string>
+    <string name="show_season_stats">Показать статистику</string>
+    <string name="bestRankPoint">Максимальные очки ранга</string>
+    <string name="dBNOs">Оглушения</string>
+    <string name="stat_txt_other">Другое</string>
+    <string name="stat_txt_graphs">Графики</string>
+    <string name="stat_txt_rank">Рейтинг</string>
+    <string name="begin_txt_description">Чтобы продолжить, введите имя игрока для сбора статистики сервера. Спасибо.
+    </string>
+    <string name="ok">ОК</string>
+    <string name="error">Ошибка!</string>
+    <string name="enter_player_name">Пустое имя игрока!</string>
+    <string name="current_season">ТЕКУЩИЙ СЕЗОН</string>
+    <string name="prev_season">ПРЕДЫДУЩИЙ СЕЗОН</string>
+</resources>

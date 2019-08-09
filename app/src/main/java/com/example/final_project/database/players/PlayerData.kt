@@ -1,6 +1,8 @@
-package com.example.final_project.players
+package com.example.final_project.database.players
+
 
 import com.google.gson.annotations.SerializedName
+
 
 data class PlayerData(
     @SerializedName("data")
@@ -11,9 +13,11 @@ data class PlayerData(
     val player: List<Player>
 
 ) {
-     fun getId(): String {
+
+    fun getId(): String {
         return player[0].id
     }
+
     fun getName(): String {
         return player[0].attributes.name
     }
