@@ -1,42 +1,41 @@
 # PUBG Statistics App
-
-A repo containing a Clean City App for Android, free to use :)
+A repo containing a Statistics App for Android, free to use :)
 ## General description:
-The idea of the project is a one-button application with a camera for reporting an unauthorized dump. 
-Quickly, conveniently, everyone uses, there is no garbage, beauty and grandeur. In addition, all sorts of statuses and achievements for those who report a lot, sharing status, etc.
+Sometimes you need the ability to view the latest statistics of a player on a mobile device quickly and without flipping through a bunch of sites with ads.
+The PUBGStats app is a convenient way to view statistics about a player, season, matches and much more. Includes the ability to view statistics for the seasons in which the player participated
 
 ## Step-by-step
-1. open the application and take a photo of an unauthorized dump
-2. click send
-3. wait for the verification results
+1. Enter the name of the player
+2. Get a complete overview of his gaming activities.
 
 ## Features
 With the app, you can:
-1. use the site from a mobile device in one click
-2. sending a report with a photo and the current coordinates of the device to the server
-3. be notified of the result
-4. see the history of your requests and their statuses
-5. use status system for users (depending on the number of successful cleanups on user reports)
-6. share status in social networks.
-7. AR extension, to display already fixed points in the camera with luminous markers (so that when looking at the camera, the user immediately understands whether the dump is already damaged or not)
+1. The main functionality - viewing statistics on servers and seasons
+2. Ability to compare player statistics
+3. View graphs illustrating seasonal statistics
+4. The ability to share with friends on social networks
+5. Just a lot of statistics
 
 ## Requirements
 - Android API 21+
-- Our test backend: https://ks-test-khack2019.herokuapp.com/
-- Here you can read much more details (RUS) https://docs.google.com/document/d/1HgvS-FZP8SDTnoZsgeLydVq8MZwqYGhkIrDBZdUSJ8c/edit
+- Get data from [here]( https://api.pubg.com/shards/pc-ru).
+- Here you can read much more details (RUS) [click](https://docs.google.com/presentation/d/1WhdU6ey3hizdVuQj3Mnb4EhiZ9p-8BlvqNB0ZJOsSXQ/edit?usp=sharing)
 
 ## Screenshots are presented below:
 <p>
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/1.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/2.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/3.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/4.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/5.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/6.jpg" width="200" height="350" />
+<img src="https://github.com/Doldrums/StatisticsApp/blob/master/7.jpg" width="200" height="350" />
 </p>
 
 ## Installation
 Clone this repository and import into **Android Studio**
 ```bash
-git clone https://github.com/daniily000/clean-city.git
+git clone https://github.com/Doldrums/StatisticsApp.git
 ```
 ## Build variants
 Use the Android Studio *Build Variants* button to choose between **production** and **staging** flavors combined with debug and release build types
@@ -55,3 +54,7 @@ From Android Studio:
 5. Push your branch (git push origin my-new-feature)
 6. Create a new Pull Request
 
+## Authors
+
+* **Anton** - *Backend and Mock-screens* - tg: @ANT0N64R
+* **Orina** - *Android* - tg: @doldrums3
